@@ -10,7 +10,7 @@ pagination_next: ifc-daylight-factor/checking-inputs
 2. **Click** the room to select it. The **Result** panel opens on the right with a **Run simulation** button.
 3. Click **Run simulation**. The tool extracts the room geometry, windows and floor polygon, sends them to the server, and shows the daylight factor result.
 
-<img src="/img/ifc/result-before.png" alt="Result panel before running the simulation" width="300" />
+<img src="/docs/img/ifc/result-before.png" alt="Result panel before running the simulation" width="300" />
 
 **Result history** — the dropdown at the top of the panel lists every room already simulated in the current model. Select one to reload its result without running it again. The history is cleared when you press **Clear All** or close the session.
 
