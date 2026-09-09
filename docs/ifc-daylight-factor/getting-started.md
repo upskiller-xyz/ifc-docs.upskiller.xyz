@@ -8,7 +8,7 @@ pagination_next: ifc-daylight-factor/running-analysis
 
 1. Open [dfifc.upskiller.xyz](https://dfifc.upskiller.xyz) in your browser
 2. **Drag and drop** an `.ifc` file onto the drop zone, or click it to open a file picker
-3. Wait for the model to load (a spinner will appear)
+3. Wait for the model to load. This can take from a few seconds to a few minutes, depending on the model size.
 4. *(Optional)* Click **"Add Context"** to load additional IFC files for surrounding buildings
 
 ## Toolbar
