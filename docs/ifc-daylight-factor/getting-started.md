@@ -6,19 +6,24 @@ pagination_next: ifc-daylight-factor/running-analysis
 
 # Loading a Model
 
-1. Open [ifc.upskiller.xyz](https://ifc.upskiller.xyz) in your browser
+1. Open [dfifc.upskiller.xyz](https://dfifc.upskiller.xyz) in your browser
 2. **Drag and drop** an `.ifc` file onto the drop zone, or click it to open a file picker
 3. Wait for the model to load (a spinner will appear)
 4. *(Optional)* Click **"Add Context"** to load additional IFC files for surrounding buildings
 
 ## Toolbar
 
+<img src="/img/ifc/toolbar.png" alt="Scene toolbar" width="140" />
+
 | Button | Action |
 |---|---|
-| **Zoom to Rooms** | Resets camera to show all rooms |
-| **Add Context** | Load additional IFC files for surrounding buildings |
-| **Clear All** | Removes all models and resets the scene |
-| **?** | Shows help information |
+| Zoom Extents | Fit the whole model in view |
+| Plan View | Switch to a top-down view |
+| Section Box | Clip the model to a box to see inside |
+| Add Context | Load additional IFC files for surrounding buildings |
+| Clear All | Remove all models and reset the scene |
+
+The **Analysis Settings** panel below the toolbar is covered in [Results & Settings](./results).
 
 ## Camera Controls
 
@@ -27,4 +32,4 @@ pagination_next: ifc-daylight-factor/running-analysis
 | Zoom in/out | Mouse scroll wheel |
 | Rotate view | Right-click + drag |
 | Pan view | Middle-click + drag |
-| Reset view | Click **"Zoom to Rooms"** |
+| Reset view | Click **Zoom Extents** |

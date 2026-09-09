@@ -106,7 +106,7 @@ The Service is intended for professional and educational use and is not directed
 
 ## 11. Changes to this Policy
 
-We may update this Policy. The current version is published at https://docs.upskiller.xyz/ifc-privacy. Material changes will be signalled by updating the "Last updated" date and, where appropriate, a notice in the Service.
+We may update this Policy. The current version is published at https://dfifc.upskiller.xyz/docs/ifc-privacy. Material changes will be signalled by updating the "Last updated" date and, where appropriate, a notice in the Service.
 
 ## 12. Contact
 

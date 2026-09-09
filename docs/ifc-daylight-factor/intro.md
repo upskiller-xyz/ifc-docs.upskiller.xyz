@@ -41,4 +41,4 @@ For project-specific materials, other standards (Norway, Denmark), or official c
 3. [Running an Analysis](./running-analysis)
 4. [Understanding Results & Settings](./results)
 
-Or go directly to the tool: [ifc.upskiller.xyz](https://ifc.upskiller.xyz)
+Or go directly to the tool: [dfifc.upskiller.xyz](https://dfifc.upskiller.xyz)

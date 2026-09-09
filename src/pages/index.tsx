@@ -5,7 +5,7 @@ export default function Home() {
   const history = useHistory();
 
   useEffect(() => {
-    history.replace('/docs/ifc-daylight-factor/intro');
+    history.replace('/ifc-daylight-factor/intro');
   }, [history]);
 
   return null;

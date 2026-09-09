@@ -24,7 +24,7 @@ The IFC Daylight Factor tool (the "Service") is provided by **BIMTech Innovation
 
 Contact: [alejandro.pacheco@upskiller.xyz](mailto:alejandro.pacheco@upskiller.xyz)
 
-The Service is available at https://ifc.upskiller.xyz (or such other address as we may designate).
+The Service is available at https://dfifc.upskiller.xyz (or such other address as we may designate).
 
 ## 2. What the Service is
 
@@ -110,7 +110,7 @@ Our processing of personal data in connection with the Service (for example serv
 
 ## 13. Changes to these Terms
 
-We may update these Terms from time to time. The current version is always published at https://docs.upskiller.xyz/ifc-terms. Material changes will be indicated by updating the "Last updated" date and, where appropriate, by a notice in the Service. Your continued use after changes take effect constitutes acceptance.
+We may update these Terms from time to time. The current version is always published at https://dfifc.upskiller.xyz/docs/ifc-terms. Material changes will be indicated by updating the "Last updated" date and, where appropriate, by a notice in the Service. Your continued use after changes take effect constitutes acceptance.
 
 ## 14. Governing law and disputes
 
