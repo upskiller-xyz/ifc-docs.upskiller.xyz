@@ -31,6 +31,10 @@ If anything looks wrong, the simulation result will be unreliable. Fix the IFC m
 - **BFS 2024:8 Compliance**: whether the room meets the Swedish daylight regulation (DF ≥ 1% across more than 50% of the habitable-room area) — see [Daylight Metrics](https://docs.upskiller.xyz/docs/concepts/daylight-metrics) for a full explanation
 - **Threshold Overlay**: toggle to highlight the compliant area in green
 
+### Per-apartment assessment (residential)
+
+Analysis is per room. For residential buildings the regulation requires the assessment to be made per apartment: evaluate each vistelserum in the apartment and sum their compliant areas to determine whether the apartment as a whole meets the threshold.
+
 ## Settings
 
 Click the **gear icon** (bottom-right) to open settings:
