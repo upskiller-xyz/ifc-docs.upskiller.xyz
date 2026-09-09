@@ -1,0 +1,32 @@
+.breadcrumbsContainer {
+  --ifm-breadcrumb-size-multiplier: 0.8;
+  margin-bottom: 0.8rem;
+}
+
+/* Inline mobile-sidebar toggle at the start of the breadcrumb list.
+   Hidden on desktop — the sidebar is always visible there. */
+.toggleItem {
+  display: none;
+}
+
+.toggleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  margin: 0;
+  color: inherit;
+  cursor: pointer;
+}
+
+@media (max-width: 996px) {
+  .toggleItem {
+    display: flex;
+    align-items: center;
+    /* Suppress the Infima breadcrumb separator after the toggle item */
+  }
+
+  .toggleItem::after {
+    display: none !important;
+  }
+}

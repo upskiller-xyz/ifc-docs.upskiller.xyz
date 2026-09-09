@@ -1,0 +1,30 @@
+/* Shared styles across all websites */
+
+/* Upskiller Brand Colors - From Brand Guidelines 2025 */
+:root {
+  /* Main Colors */
+  --upskiller-purple-dark: #180057;
+  --upskiller-blue-saturated: #005d8a;
+  --upskiller-sky-light: #f4fffa;
+  --upskiller-green: #00d67a;
+
+  /* Accent */
+  --upskiller-accent: #00ff66;
+
+  /* Shades - Purple */
+  --upskiller-purple-darkest: #0c002b;
+  --upskiller-purple-shade-1: #4e378a;
+
+  /* Shades - Blue */
+  --upskiller-blue-shade-1: #337ca1;
+  --upskiller-blue-shade-2: #a39fbc;
+  --upskiller-blue-share-2: #99bed0;
+
+  /* Shades - Green */
+  --upskiller-green-shade-1: #33de95;
+  --upskiller-green-shade-2: #99efca;
+
+  /* Legacy aliases for backwards compatibility */
+  --upskiller-purple: #180057;
+  --upskiller-purple-light: #4e378a;
+}
