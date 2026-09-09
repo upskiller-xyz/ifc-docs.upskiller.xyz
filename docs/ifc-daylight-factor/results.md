@@ -1,6 +1,6 @@
 ---
-sidebar_position: 6
-pagination_prev: ifc-daylight-factor/running-analysis
+sidebar_position: 7
+pagination_prev: ifc-daylight-factor/checking-inputs
 pagination_next: null
 ---
 

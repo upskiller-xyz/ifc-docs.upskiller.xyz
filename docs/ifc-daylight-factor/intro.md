@@ -42,6 +42,7 @@ For project-specific materials, other standards (Norway, Denmark), or official c
 2. [Loading a Model](./getting-started)
 3. [Analysis Settings](./analysis-settings)
 4. [Running an Analysis](./running-analysis)
-5. [Results](./results)
+5. [Checking the Inputs](./checking-inputs)
+6. [Results](./results)
 
 Or go directly to the tool: [dfifc.upskiller.xyz](https://dfifc.upskiller.xyz)

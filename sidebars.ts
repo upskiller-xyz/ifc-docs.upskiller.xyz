@@ -13,6 +13,7 @@ const sidebars: SidebarsConfig = {
         'ifc-daylight-factor/getting-started',
         'ifc-daylight-factor/analysis-settings',
         'ifc-daylight-factor/running-analysis',
+        'ifc-daylight-factor/checking-inputs',
         'ifc-daylight-factor/results',
       ],
     },
