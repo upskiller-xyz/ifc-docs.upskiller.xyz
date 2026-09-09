@@ -12,12 +12,33 @@ pagination_next: ifc-daylight-factor/results
 
 The tool automatically extracts room geometry, windows, and floor polygon, sends the data to the backend, and displays results.
 
-## What Gets Analyzed
+## Checking the Inputs
 
-IFC Daylight Factor detects the following from your IFC model:
+When the analysis runs, the **Room Properties** panel shows what the tool extracted from your model. Check these values before trusting the result — if something is wrong, fix the IFC and re-run.
 
-- Room dimensions (from the IfcSpace bounding volume)
-- Window positions, sizes, and glass-to-frame ratios
-- Sky obstruction from surrounding geometry (balconies, overhangs, context buildings)
+<img src="/img/ifc/room-properties.png" alt="Room Properties panel" width="330" />
 
-If a room has no IfcSpace element or no IfcWindow elements, the analysis will not run. Make sure your IFC export includes these types — see [Preparing Your IFC File](./model-preparation).
+| Field | Meaning |
+|---|---|
+| Name | IfcSpace name or number |
+| Room Height | Floor to ceiling |
+| Roof over Floor | Floor to the roof above (top-floor rooms) |
+| Floor over Terrain | Height of the floor above ground |
+| Floor Area | Area of the room floor polygon |
+| Window-to-Floor Ratio | Total glazed area divided by floor area |
+
+### Windows
+
+The **Windows** section lists every window found in the room. Use the dropdown to inspect each one.
+
+![Room Properties window panel](/img/ifc/room-properties-window.png)
+
+| Field | Meaning |
+|---|---|
+| Height / Sill Height | Window height, and height of its base above the floor |
+| Opening Area | Glazed area of the window |
+| Frame Ratio | Share of the opening taken up by the frame |
+
+**Show obstruction (3D)** draws what blocks the sky from that window. The **Fisheye** view is a hemispherical projection: light areas are visible sky, dark areas are obstructions (balconies, overhangs, context buildings). The **Sky obstruction** bar summarises how much sky is blocked from the horizon up to the zenith.
+
+If a room has no IfcSpace element or no IfcWindow elements, the analysis will not run — see [Preparing Your IFC File](./model-preparation).

@@ -23,10 +23,12 @@ This repository contains the documentation website for **IFC Daylight Factor**, 
 
 It is a **separate Docusaurus site** from the LUX plugin docs (`docs.upskiller.xyz`), sharing the same theme and brand styling but with its own navigation, footer and legal pages.
 
-- Tool frontend: [`web-daylight-tool`](https://github.com/upskiller-xyz/web-daylight-tool) (deployed to `ifc.upskiller.xyz` — **domain to be confirmed**)
+The tool and these docs share one domain: the web tool is served at the root of **`dfifc.upskiller.xyz`**, and the docs under **`dfifc.upskiller.xyz/docs/`** (`baseUrl: '/docs/'`). Path routing between the two apps is handled by the deployment, not this repo.
+
+- Tool frontend: [`web-daylight-tool`](https://github.com/upskiller-xyz/web-daylight-tool) — served at `dfifc.upskiller.xyz/`
 - LUX plugin docs: [`docs.upskiller.xyz`](https://github.com/upskiller-xyz/docs.upskiller.xyz)
 
-> **Hosting is not finalised.** `url` in `docusaurus.config.ts` is a placeholder (`ifc-docs.upskiller.xyz`). Confirm the final domain with Stasja / Libny before the first production deploy.
+> **Repo name is a placeholder** (`ifc-docs.upskiller.xyz`) pending Stasja's confirmation. Deployment (Scaleway container, same pattern as `web-daylight-tool`) still to be wired up with Libny.
 
 ## Local development
 

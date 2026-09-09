@@ -25,7 +25,11 @@ Include only elements that define the building envelope and room geometry. Exclu
 
 ## Context Buildings (Optional)
 
-Surrounding buildings should be modeled as **masses (generic volumetry)** rather than detailed BIM models. This keeps file sizes small and ensures the sky obstruction calculation stays accurate.
+Model a surrounding building only if it blocks part of the sky seen from the windows of the rooms you will analyse. A building that sits below those windows, or is far enough away to fall under the horizon seen from them, has no effect on the result and can be left out.
+
+Model context as **masses (generic volumetry)**, not detailed BIM. Simple blocks at the right height and footprint are enough, and they keep the file small.
+
+**Do not model vegetation.** Trees, hedges and other planting are not treated as permanent obstructions and are excluded from the calculation.
 
 ## Recommended File Sizes
 

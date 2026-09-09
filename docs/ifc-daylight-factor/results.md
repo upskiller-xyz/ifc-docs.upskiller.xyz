@@ -5,40 +5,27 @@ pagination_prev: ifc-daylight-factor/running-analysis
 
 # Results & Settings
 
-## Input Tab (Visual QA)
+## Result
 
-Before trusting the simulation, verify that the data extracted from your model is correct. The Input tab shows everything that was sent to the backend.
+Click a room to run the analysis. The **Result** panel opens on the right.
 
-**Room Info**: check that room height and floor area match your model.
+![Result panel](/img/ifc/result.png)
 
-**Windows**: use the dropdown to inspect each window. For each window verify:
-
-- Position and dimensions match the real window location
-- Glass area and frame ratio look realistic
-- All windows in the room are listed
-
-**Sky Obstruction Fisheye Diagram** — when a window is selected, a hemispherical projection shows what the sky "sees" from that window. Light areas = visible sky. Dark areas = obstructions (buildings, balconies, terrain). Verify that balconies above the window and nearby buildings are captured correctly.
-
-If anything looks wrong, the simulation result will be unreliable. Fix the IFC model and re-run.
-
-## Output Tab
-
-- **Heatmap**: color-coded grid on the room floor showing daylight factor values:
-  - Blue = 0% DF
-  - Purple/Red = 1–2% DF
-  - Yellow = 5% DF
-  - White = 10%+ DF
-- **BFS 2024:8 Compliance**: whether the room meets the Swedish daylight regulation (DF ≥ 1% across more than 50% of the habitable-room area) — see [Daylight Metrics](https://docs.upskiller.xyz/docs/concepts/daylight-metrics) for a full explanation
-- **Threshold Overlay**: toggle to highlight the compliant area in green
+- **Daylight Factor (DF) heatmap** on the room floor. Blue = 0%, red at 1–2%, green/white at 5–10%+.
+- **Area with DF ≥ 1%**: share of the floor that meets the threshold, shown as a percentage and in m² (e.g. 3.92 out of 9.73 m²).
+- **Compliance status** against the Swedish daylight regulation (BFS 2024:8): **COMPLIES** when DF ≥ 1% over more than 50% of the room area, otherwise **DOES NOT COMPLY**. See [Daylight Metrics](https://docs.upskiller.xyz/docs/concepts/daylight-metrics) for the full definition.
+- **Result history**: reopen the result for a previously analysed room.
 
 ### Per-apartment assessment (residential)
 
 Analysis is per room. For residential buildings the regulation requires the assessment to be made per apartment: evaluate each vistelserum in the apartment and sum their compliant areas to determine whether the apartment as a whole meets the threshold.
 
-## Settings
+## Analysis Settings
 
-Click the **gear icon** (bottom-right) to open settings:
+Open **Analysis Settings** (left side, below the toolbar) to change the assumptions used for the calculation. The heatmap recalculates when you change a value.
 
-- **Standard**: the Swedish regulation (BFS 2024:8) is active. Additional standards (Norway NS 3940, Danish BR18) are available in [LUX Live](https://docs.upskiller.xyz/docs/lux-live/intro).
-- **Reflectance values**: ceiling, wall, floor, and ground. The web version uses the fixed default values. Custom per-surface reflectances are planned; today they are reachable through the [API](https://docs.upskiller.xyz/docs/api/intro) only.
-- **Light Transmittance (LT)**: adjust the slider (45–89%) to change glass transmittance. The heatmap recalculates automatically.
+<img src="/img/ifc/analysis-settings.png" alt="Analysis Settings panel" width="285" />
+
+- **Daylight Standard**: the Swedish regulation (SE >1% DF, BFS 2024:8) is the only option in the web tool. Other standards (Norway, Denmark) are available in [LUX](https://docs.upskiller.xyz/docs/lux-live/intro).
+- **Reflectance Values**: fixed defaults per surface — Floor 30%, Walls 70%, Ceiling 80%, Frames 50%, Facade 30%, Balcony 70%, Context 30%, Terrain 20%. Project-specific reflectances are available in LUX.
+- **Light Transmittance (Glass)**: fraction of light the glazing lets through. Default 67%. Adjust the slider to match your specified glass.
