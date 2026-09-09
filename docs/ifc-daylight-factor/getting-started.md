@@ -1,7 +1,7 @@
 ---
 sidebar_position: 3
 pagination_prev: ifc-daylight-factor/model-preparation
-pagination_next: ifc-daylight-factor/running-analysis
+pagination_next: ifc-daylight-factor/analysis-settings
 ---
 
 # Loading a Model
@@ -23,7 +23,7 @@ pagination_next: ifc-daylight-factor/running-analysis
 | Add Context | Load additional IFC files for surrounding buildings |
 | Clear All | Remove all models and reset the scene |
 
-The **Analysis Settings** panel below the toolbar is covered in [Results & Settings](./results).
+The **Analysis Settings** panel below the toolbar is covered in [Analysis Settings](./analysis-settings).
 
 ## Camera Controls
 

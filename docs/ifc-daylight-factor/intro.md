@@ -39,8 +39,9 @@ For project-specific materials, other standards (Norway, Denmark), or official c
 ## Get Started
 
 1. [Preparing Your IFC File](./model-preparation)
-2. [Loading a Model & Camera Controls](./getting-started)
-3. [Running an Analysis](./running-analysis)
-4. [Understanding Results & Settings](./results)
+2. [Loading a Model](./getting-started)
+3. [Analysis Settings](./analysis-settings)
+4. [Running an Analysis](./running-analysis)
+5. [Results](./results)
 
 Or go directly to the tool: [dfifc.upskiller.xyz](https://dfifc.upskiller.xyz)
