@@ -6,15 +6,21 @@ pagination_next: ifc-daylight-factor/results
 
 # Running an Analysis
 
-1. **Hover** over a room: the room volume and floor turn green, and a tooltip shows the room name
-2. **Click** the highlighted room to start the analysis
-3. The results panel opens on the right side
+Running an analysis takes two clicks and a button.
 
-The tool automatically extracts room geometry, windows, and floor polygon, sends the data to the backend, and displays results.
+1. **Hover** over a room — its volume and floor turn green and a tooltip shows the room name.
+2. **Click** the room to select it. The **Result** panel opens on the right with a **Run simulation** button.
+3. Click **Run simulation**. The tool extracts the room geometry, windows and floor polygon, sends them to the server, and shows the daylight factor result.
+
+<img src="/img/ifc/result-before.png" alt="Result panel before running the simulation" width="300" />
+
+**Result history** — the dropdown at the top of the panel lists every room already simulated in the current model. Select one to reload its result without running it again. The history is cleared when you press **Clear All** or close the session.
+
+Simulations are limited to 10 rooms per user per day, shared across sessions, to keep the server responsive.
 
 ## Checking the Inputs
 
-When the analysis runs, the **Room Properties** panel shows what the tool extracted from your model. Check these values before trusting the result — if something is wrong, fix the IFC and re-run.
+When you select a room, the **Room Properties** panel shows what the tool extracted from your model. Check these values before running the simulation — if something is wrong, fix the IFC and re-load the model.
 
 <img src="/img/ifc/room-properties.png" alt="Room Properties panel" width="330" />
 

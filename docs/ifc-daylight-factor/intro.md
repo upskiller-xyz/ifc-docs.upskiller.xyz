@@ -32,6 +32,8 @@ Its results are preliminary and approximate and are not meant to be used as offi
 
 IFC Daylight Factor uses the default material reflectances and the Swedish regulation (BFS 2024:8) only.
 
+To keep the shared server responsive, the tool runs at most 10 room simulations per user per day.
+
 For project-specific materials, other standards (Norway, Denmark), or official compliance simulations, use [LUX](https://docs.upskiller.xyz/docs/lux-live/intro) — contact [alejandro.pacheco@upskiller.xyz](mailto:alejandro.pacheco@upskiller.xyz) for access.
 
 ## Get Started
