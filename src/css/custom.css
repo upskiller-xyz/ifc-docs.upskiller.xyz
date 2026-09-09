@@ -1,0 +1,527 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* Fonts served from static/fonts — works in dev and production */
+@import './fonts.css';
+
+/* Import shared styles */
+@import './shared.css';
+
+/* Brand-aligned Infima variables */
+:root {
+  /* Primary color: Spring Green */
+  --ifm-color-primary: #00d67a;
+  --ifm-color-primary-dark: #00c26e;
+  --ifm-color-primary-darker: #00b768;
+  --ifm-color-primary-darkest: #009756;
+  --ifm-color-primary-light: #33de95;
+  --ifm-color-primary-lighter: #4ae1a0;
+  --ifm-color-primary-lightest: #99efca;
+
+  /* Background: Sky Blue Light */
+  --ifm-background-color: #f4fffa;
+  --ifm-background-surface-color: #ffffff;
+
+  /* Text: Purple Dark */
+  --ifm-font-color-base: #180057;
+  --ifm-heading-color: #180057;
+
+  /* Links: Purple Dark (as per brand guidelines) */
+  --ifm-link-color: #180057;
+  --ifm-link-hover-color: #4e378a;
+
+  /* Code */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 214, 122, 0.1);
+
+  /* Font */
+  --ifm-font-family-base: 'AUTOMATE', system-ui, -apple-system, sans-serif;
+  --ifm-font-weight-base: 300;
+  --ifm-heading-font-weight: 700;
+
+  /* Card Layout */
+  --lux-card-background: transparent;
+  --lux-card-padding: 2rem;
+  --lux-card-radius: 8px;
+
+  /* Light mode text adjustments */
+  --ifm-font-color-base-opacity: 0.9;
+
+  /* Sidebar menu text: brand Purple Dark instead of default grey */
+  --ifm-menu-color: #180057;
+}
+
+/* Dark mode: Purple Dark background, Off-white text */
+[data-theme='dark'] {
+  /* Primary color: Spring Green (same in dark mode) */
+  --ifm-color-primary: #00d67a;
+  --ifm-color-primary-dark: #00c26e;
+  --ifm-color-primary-darker: #00b768;
+  --ifm-color-primary-darkest: #009756;
+  --ifm-color-primary-light: #33de95;
+  --ifm-color-primary-lighter: #4ae1a0;
+  --ifm-color-primary-lightest: #99efca;
+
+  /* Background: Midnight Purple Dark */
+  --ifm-background-color: #180057;
+  --ifm-background-surface-color: #4e378a;
+
+  /* Text: Off-white */
+  --ifm-font-color-base: #f4fffa;
+  --ifm-heading-color: #f4fffa;
+
+  /* Links */
+  --ifm-link-color: #00d67a;
+  --ifm-link-hover-color: #33de95;
+
+  /* Code highlighting */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 214, 122, 0.15);
+
+  /* Navbar */
+  --ifm-navbar-background-color: rgba(24, 0, 87, 0.8);
+  --ifm-navbar-link-color: #f4fffa;
+  --ifm-navbar-link-hover-color: #00d67a;
+
+  /* Card Layout */
+  --lux-card-background: transparent;
+  --lux-card-padding: 2rem;
+  --lux-card-radius: 8px;
+
+  /* Table borders */
+  --ifm-table-border-color: #4e378a;
+
+  /* Sidebar menu text: Off-white */
+  --ifm-menu-color: #f4fffa;
+}
+
+/* Dark mode gradient background: Uses a position:fixed pseudo-element so the gradient always fills exactly the viewport. */
+html[data-theme='dark'] {
+  background-color: var(--upskiller-purple-darkest);
+  /* overscroll / fallback */
+}
+
+html[data-theme='dark'] body {
+  background: transparent;
+  min-height: 100vh;
+  /* legacy fallback */
+  min-height: 100dvh;
+  /* dynamic viewport height: mobile browser */
+}
+
+html[data-theme='dark'] body::before {
+  content: '';
+  position: fixed;
+  /* fixed to viewport — no positioned parent needed */
+  inset: 0;
+  background: linear-gradient(180deg, var(--upskiller-purple-dark) 0%, var(--upskiller-purple-darkest) 100%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Ensure content containers have appropriate backgrounds */
+[data-theme='dark'] .main-wrapper {
+  background: transparent;
+}
+
+[data-theme='dark'] article {
+  background: transparent;
+}
+
+[data-theme='dark'] .navbar {
+  background: #1800571a;
+  border-bottom: 1px solid #ffffff1a;
+}
+
+/* Desktop-only: backdrop-filter on .navbar creates a containing block
+   that traps the position:fixed .navbar-sidebar inside the ~60px navbar
+   box, hiding the mobile menu. Scope the blur above the sidebar
+   breakpoint (997px) where the mobile sidebar isn't used. */
+@media (min-width: 997px) {
+  [data-theme='dark'] .navbar {
+    backdrop-filter: blur(10px);
+  }
+}
+
+/* Mobile hamburger panel: solid background so menu is readable against
+   the fixed gradient body background. */
+[data-theme='dark'] .navbar-sidebar {
+  background-color: var(--upskiller-purple-dark);
+}
+
+/* Navbar CTA button: "Download LUX" */
+.navbar-cta-button {
+  background-color: #00ff66;
+  color: #180057 !important;
+  padding: 0.5rem 1rem;
+  border-radius: 0;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-cta-button:hover {
+  background-color: #00e65c;
+  color: #180057 !important;
+}
+
+/* Download button: same green as the navbar CTA */
+.markdown a.download-button {
+  background-color: #00ff66;
+  color: #180057;
+  padding: 0.75rem 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background-color 0.2s ease;
+}
+
+.markdown a.download-button:hover {
+  background-color: #00e65c;
+  color: #180057;
+  text-decoration: none;
+}
+
+/* Hide external-link icon next to navbar items */
+.navbar__link svg[class*='iconExternalLink'] {
+  display: none;
+}
+
+/* Content links: bold body-colored text with brand-green underline */
+.markdown a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: var(--ifm-color-primary);
+  text-underline-offset: 2px;
+}
+
+.markdown a:hover {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--ifm-color-primary);
+  text-decoration-thickness: 2px;
+}
+
+/* Typography adjustments per brand guidelines */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+p, li {
+  font-weight: 300;
+}
+
+strong, b {
+  font-weight: 700;
+}
+
+/* Heading spacing in content pages */
+.markdown > h2 {
+  margin-top: 3rem;
+}
+
+/* Card Layout - applies to both light and dark mode */
+.markdown {
+  background: var(--lux-card-background);
+  border-radius: var(--lux-card-radius);
+  padding: var(--lux-card-padding);
+}
+
+/* Lux illustration sizing */
+.markdown img[src*="heatmap_in_3d.png"] {
+  max-height: 30vh;
+  width: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+@media (max-width: 768px) {
+  .markdown img[src*="heatmap_in_3d.png"] {
+    max-height: 60vh;
+  }
+}
+
+/* Pagination nav (Previous/Next buttons at bottom of doc pages) */
+.pagination-nav__link {
+  background-color: #00d67a;
+  border: none;
+  border-radius: 0;
+  color: #180057;
+}
+
+.pagination-nav__link:hover {
+  background-color: #00c26e;
+  border: none;
+  color: #180057;
+}
+
+.pagination-nav__sublabel,
+.pagination-nav__label {
+  color: #180057;
+}
+
+.pagination-nav__link:hover .pagination-nav__sublabel,
+.pagination-nav__link:hover .pagination-nav__label {
+  color: #180057;
+}
+
+/* Tip, Note, and Info admonitions */
+.theme-admonition-tip,
+.theme-admonition-note,
+.theme-admonition-info {
+  --ifm-alert-background-color: #4e378a;
+  --ifm-alert-foreground-color: #f4fffa;
+  --ifm-alert-border-color: #4e378a;
+  border-left-width: 0;
+  border-radius: 0;
+}
+
+/* Collapsible details/summary sections */
+details.alert {
+  --docusaurus-details-decoration-color: #f4fffa;
+  background-color: #4e378a;
+  color: #f4fffa;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+details.alert summary {
+  color: #f4fffa;
+}
+
+/* Dark mode code blocks: deepest purple background, sharp corners */
+[data-theme='dark'] {
+  --prism-background-color: var(--upskiller-purple-darkest);
+  --ifm-code-border-radius: 0;
+}
+
+[data-theme='dark'] pre,
+[data-theme='dark'] pre code,
+[data-theme='dark'] .theme-code-block {
+  background-color: var(--upskiller-purple-darkest);
+  border-radius: 0;
+}
+
+/* ========== Sidebar: grouped section navigation ========== */
+
+/* Widen sidebar by ~20% (300px → 360px) */
+:root {
+  --doc-sidebar-width: 360px;
+
+  /* Shared left gutter: distance from viewport edge to where the
+     navbar logo and sidebar menu text both start. Change this one
+     value to move both together. */
+  --lux-left-gutter: 2.75rem;
+}
+
+/* Navbar: logo sits flush with the gutter */
+.navbar {
+  padding-left: var(--lux-left-gutter);
+}
+
+/* Sidebar menu: subtract the link's own horizontal padding so the
+   visible text lines up with the gutter */
+.theme-doc-sidebar-container .menu {
+  padding-left: calc(var(--lux-left-gutter) - var(--ifm-menu-link-padding-horizontal));
+  padding-right: 0.5rem;
+  padding-top: 1.5rem;
+}
+
+/* Level-1 section header: bold, whether rendered as a collapsible category
+   or as a plain link (for sections like LUX Certify with no subpages) */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-item-link-level-1 > .menu__link {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+/* Level-2 items: lighter weight, indented under the section header */
+.theme-doc-sidebar-item-link-level-2 > .menu__link {
+  font-weight: 300;
+  padding-left: 2rem;
+}
+
+/* Level-1 category title turns green when any descendant page is active */
+.theme-doc-sidebar-item-category-level-1:has(.menu__link--active)
+  > .menu__list-item-collapsible
+  > .menu__link {
+  color: var(--ifm-color-primary);
+}
+
+/* Level-1 category title turns green when its own linked page is active */
+.theme-doc-sidebar-item-category-level-1
+  > .menu__list-item-collapsible--active
+  > .menu__link {
+  color: var(--ifm-color-primary);
+}
+
+/* Active sub-item: green text, no filled background */
+.menu__link--active:not(.menu__link--sublist) {
+  background: transparent;
+  color: var(--ifm-color-primary);
+}
+
+/* Breadcrumb active item: text only, no pill background */
+.breadcrumbs__item--active .breadcrumbs__link {
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Section headers (Users / Developers): non-clickable labels, outdented
+   to the left of the category items below them. */
+.sidebar-section-header-item {
+  list-style: none;
+  margin-top: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.sidebar-section-header-item:first-child {
+  margin-top: 0;
+}
+
+.sidebar-section-header {
+  padding-left: calc(var(--lux-left-gutter) - var(--ifm-menu-link-padding-horizontal) - 1.75rem);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ifm-menu-color);
+  user-select: none;
+  cursor: default;
+}
+
+/* Indent category rows so the section headers visibly outdent above them. */
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible > .menu__link,
+.theme-doc-sidebar-item-link-level-1 > .menu__link {
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) + 1.75rem);
+}
+
+/* ========== Mobile: two-row nav with hamburger on the breadcrumb bar ========== */
+
+@media (max-width: 996px) {
+  /* Navbar keeps only the brand on mobile; the hamburger lives in the
+     breadcrumb (see src/theme/DocBreadcrumbs). */
+  .navbar {
+    padding-left: 1rem;
+  }
+
+  .navbar__toggle {
+    display: none;
+  }
+
+  /* Breadcrumb nav becomes a sticky secondary bar below the navbar.
+     Left padding matches the content card's padding (--lux-card-padding)
+     so the hamburger lines up with the page heading underneath. */
+  nav.theme-doc-breadcrumbs {
+    position: sticky;
+    top: var(--ifm-navbar-height);
+    z-index: 198;
+    margin: 0 0 1rem;
+    padding: 0.5rem 1rem 0.5rem var(--lux-card-padding);
+    min-height: 3rem;
+    background: var(--ifm-background-color);
+    border-bottom: 1px solid var(--ifm-color-emphasis-200);
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+  }
+
+  nav.theme-doc-breadcrumbs .breadcrumbs {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  [data-theme='dark'] nav.theme-doc-breadcrumbs {
+    background: var(--upskiller-purple-dark);
+    border-bottom-color: #ffffff1a;
+  }
+
+  /* Hide the "On this page" collapsible TOC on mobile */
+  .theme-doc-toc-mobile {
+    display: none;
+  }
+
+  /* Hide the home icon on mobile; the hamburger sits in its place.
+     The hamburger li is first; the home li follows. */
+  nav.theme-doc-breadcrumbs .breadcrumbs > .breadcrumbs__item:nth-child(2):has(a[aria-label*="Home"]) {
+    display: none;
+  }
+
+  /* Hide the "← Back to main menu" button in the mobile sidebar;
+     the drawer opens directly into the docs nav. */
+  .navbar-sidebar__back {
+    display: none;
+  }
+
+  /* Shorten the CTA label on mobile */
+  .navbar-cta-button {
+    font-size: 0;
+  }
+
+  .navbar-cta-button::before {
+    content: 'Open';
+    font-size: 1rem;
+  }
+}
+
+/* Infima's footer--dark ships a grey slate (#303846) that is not in the brand
+   palette. Use brand Purple Dark in both themes. In dark mode the page sits on
+   a fixed gradient that ends at Purple Darkest (#0c002b) at the viewport
+   bottom, so the footer reads as a distinct lighter shade against it. */
+.footer--dark {
+  --ifm-footer-background-color: var(--upskiller-purple-dark);
+}
+
+/* Delineate the footer from the page above it in dark mode. */
+[data-theme='dark'] .footer {
+  border-top: 1px solid #ffffff1a;
+}
+
+/* Footer: the link columns default to Infima's grid, which spreads two
+   columns across the full width. Shrink them to their content and center
+   the group, and match the right-side TOC text size (0.8rem). */
+.footer__links {
+  justify-content: center;
+  gap: 1rem 5rem;
+}
+
+/* `.col` sets width: 100%, which flex-basis: auto resolves from, so each
+   column fills the row and wraps. Size them to their content instead. */
+.footer__col {
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: none;
+  padding: 0;
+}
+
+.footer__title,
+.footer__link-item,
+.footer__bottom {
+  font-size: 0.8rem;
+}
+
+/* Separate the copyright line from the link columns above it. */
+.footer__bottom {
+  padding-top: 1.25rem;
+}
+
+/* The footer background is dark in both themes, but the copyright line is raw
+   HTML whose links inherit --ifm-link-color — Purple Dark in light mode, and
+   unreadable there. Use Spring Green in both, as dark mode already does. */
+.footer__copyright a {
+  color: var(--ifm-color-primary);
+}
+
+.footer__copyright a:hover {
+  color: var(--ifm-color-primary-light);
+}
