@@ -1,6 +1,5 @@
 <a id="readme-top"></a>
 
-<!-- PROJECT LOGO -->
 <br />
 <div align="center">
   <img src="static/img/lux_logo_RGB.svg" alt="Upskiller logo" width="400">
