@@ -5,12 +5,6 @@ description: Terms of Use for the free IFC Daylight Factor web tool provided by 
 
 # IFC Daylight Factor — Terms of Use
 
-:::warning[Draft — legal review required]
-
-This document is a draft. It is published for review and does not yet bind BIMTech Innovations AB or its users.
-
-:::
-
 **Product:** IFC Daylight Factor (free online tool, formerly "LUX Web")<br />
 **Provider:** BIMTech Innovations AB ("Upskiller")<br />
 **Version:** 0.1 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-09<br />

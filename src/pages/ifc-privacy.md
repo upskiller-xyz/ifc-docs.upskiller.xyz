@@ -5,12 +5,6 @@ description: How BIMTech Innovations AB processes personal data in the free IFC 
 
 # IFC Daylight Factor — Privacy Policy (GDPR)
 
-:::warning[Draft — legal review required]
-
-This document is a draft. It is published for review and does not yet bind BIMTech Innovations AB or its users.
-
-:::
-
 **Product:** IFC Daylight Factor (free online tool, formerly "LUX Web")<br />
 **Controller:** BIMTech Innovations AB ("Upskiller")<br />
 **Version:** 0.1 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-09<br />
