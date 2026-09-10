@@ -7,7 +7,7 @@ description: How BIMTech Innovations AB processes personal data in the free IFC 
 
 **Product:** IFC Daylight Factor (free online tool, formerly "LUX Web")<br />
 **Controller:** BIMTech Innovations AB ("Upskiller")<br />
-**Version:** 0.1 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-09<br />
+**Version:** 1.0 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-10<br />
 **Companion document:** [IFC Daylight Factor — Terms of Use](/ifc-terms)
 
 ---
