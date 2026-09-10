@@ -474,17 +474,16 @@ details.alert summary {
   }
 }
 
-/* Infima's footer--dark ships a grey slate (#303846) that is not in the brand
-   palette. Use brand Purple Dark in both themes. In dark mode the page sits on
-   a fixed gradient that ends at Purple Darkest (#0c002b) at the viewport
-   bottom, so the footer reads as a distinct lighter shade against it. */
+/* Footer is transparent so it sits on the page background in both themes —
+   the flat light background, or the fixed dark-mode gradient — with no seam
+   beyond a hairline rule. */
 .footer--dark {
-  --ifm-footer-background-color: var(--upskiller-purple-dark);
-}
-
-/* Delineate the footer from the page above it in dark mode. */
-[data-theme='dark'] .footer {
-  border-top: 1px solid #ffffff1a;
+  --ifm-footer-background-color: transparent;
+  --ifm-footer-color: var(--ifm-font-color-base);
+  --ifm-footer-link-color: var(--ifm-font-color-base);
+  --ifm-footer-title-color: var(--ifm-font-color-base);
+  background-color: transparent;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
 }
 
 /* Footer: the link columns default to Infima's grid, which spreads two
@@ -515,11 +514,11 @@ details.alert summary {
   padding-top: 1.25rem;
 }
 
-/* The footer background is dark in both themes, but the copyright line is raw
-   HTML whose links inherit --ifm-link-color — Purple Dark in light mode, and
-   unreadable there. Use Spring Green in both, as dark mode already does. */
+/* Copyright line is raw HTML; keep its links Spring Green in both themes,
+   underlined so they stay legible on the light footer. */
 .footer__copyright a {
   color: var(--ifm-color-primary);
+  text-decoration: underline;
 }
 
 .footer__copyright a:hover {
