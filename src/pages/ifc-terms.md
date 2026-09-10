@@ -7,7 +7,7 @@ description: Terms of Use for the free IFC Daylight Factor web tool provided by 
 
 **Product:** IFC Daylight Factor (free online tool, formerly "LUX Web")<br />
 **Provider:** BIMTech Innovations AB ("Upskiller")<br />
-**Version:** 0.1 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-09<br />
+**Version:** 1.0 · **Effective date:** 2026-09-01 · **Last updated:** 2026-09-10<br />
 **Companion document:** [IFC Daylight Factor — Privacy Policy](/ifc-privacy)
 
 ---
