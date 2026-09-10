@@ -51,11 +51,7 @@ const config: Config = {
       respectPrefersColorScheme: false,
     },
     navbar: {
-      title: 'Docs',
-      logo: {
-        alt: 'Upskiller Logo',
-        src: 'img/lux_logo_RGB.svg',
-      },
+      title: 'IFC Daylight Factor',
       items: [
         {
           href: 'https://dfifc.upskiller.xyz/',
