@@ -137,8 +137,8 @@ Hosted API has no enforced rate limits currently. Subject to change as service s
 
 [API Reference](./api-reference) - Complete endpoint documentation
 
-[Required Parameters](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters) - Parameter specifications
+[Required Parameters](/docs/ifc-daylight-factor/methodology/parameters) - Parameter specifications
 
-[Simulation Modes](https://docs.upskiller.xyz/docs/lux-live/methodology/simulation-modes) - Detailed mode explanations
+[Simulation Modes](/docs/ifc-daylight-factor/methodology/simulation-modes) - Detailed mode explanations
 
 [Local Deployment](../contributing/servers) - Self-hosting instructions
