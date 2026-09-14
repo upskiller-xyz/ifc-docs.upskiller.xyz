@@ -4,11 +4,12 @@ const sidebars: SidebarsConfig = {
   mainSidebar: [
     {
       type: 'category',
-      label: 'IFC Daylight Factor',
+      label: 'Usage',
       collapsible: true,
       collapsed: false,
-      link: { type: 'doc', id: 'ifc-daylight-factor/intro' },
+      link: { type: 'doc', id: 'ifc-daylight-factor/usage' },
       items: [
+        'ifc-daylight-factor/intro',
         'ifc-daylight-factor/model-preparation',
         'ifc-daylight-factor/getting-started',
         'ifc-daylight-factor/analysis-settings',
@@ -51,6 +52,7 @@ const sidebars: SidebarsConfig = {
         'contributing/templates',
       ],
     },
+    'about/intro',
   ],
 };
 
