@@ -17,7 +17,7 @@ Coordinate values use the XYZ coordinate system with Z pointing up. See [Coordin
 | Floor height above terrain | Vertical position of the floor level | Float (meters) | Required |
 | Roof height above terrain | Vertical position of the roof level | Float (meters) | Required |
 
-👉 [How to measure](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters#room-geometry)
+<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> [How to measure](/docs/ifc-daylight-factor/methodology/parameters#room-geometry)
 
 ## Window Properties
 
@@ -28,7 +28,7 @@ Coordinate values use the XYZ coordinate system with Z pointing up. See [Coordin
 | Window frame ratio | Ratio of opaque area to total window area | Float (0-1) | Required |
 | Window orientation | Cardinal direction the window faces | Float (degrees, 0-360°) | 288° |
 
-👉 [How to measure](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters#window-geometry) | [Coordinate System](/docs/contributing/coordinate-system)
+<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> [How to measure](/docs/ifc-daylight-factor/methodology/parameters#window-geometry) | [Coordinate System](/docs/contributing/coordinate-system)
 
 ## Context & Obstructions
 
@@ -39,7 +39,7 @@ Obstruction mesh vertices use XYZ coordinates (Z-up). Direction angles define ho
 | Horizon angle | Angular distance from horizontal line at the window reference point to surrounding obstructions | Array of angles `[a1, a2, ...]` or single float (degrees, 0-90°) | Required |
 | Zenith angle | Angular distance from vertical line at the window reference point to overhead obstructions | Array of angles `[a1, a2, ...]` or single float (degrees, 0-90°) | Required |
 
-👉 [How to measure](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters#context-obstruction) | [Coordinate System](/docs/contributing/coordinate-system) | [Direction Angles](/docs/contributing/coordinate-system#single-angle-direction-system)
+<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> [How to measure](/docs/ifc-daylight-factor/methodology/parameters#context-obstruction) | [Coordinate System](/docs/contributing/coordinate-system) | [Direction Angles](/docs/contributing/coordinate-system#single-angle-direction-system)
 
 ## Material Properties
 
@@ -54,10 +54,10 @@ Obstruction mesh vertices use XYZ coordinates (Z-up). Direction angles define ho
 | Context reflectance | Light reflectance of surrounding buildings | Float (0.10-0.60) | 0.30 |
 | Balcony reflectance | Light reflectance of balcony underside | Float (0.30-0.90) | 0.70 |
 
-👉 [How to measure](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters#reflectance)
+<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> [How to measure](/docs/ifc-daylight-factor/methodology/parameters#reflectance)
 ____
 
 
 ## Still unclear?
 
-Check [parameter explanation](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters) for more details about each parameter.
+Check [parameter explanation](/docs/ifc-daylight-factor/methodology/parameters) for more details about each parameter.
