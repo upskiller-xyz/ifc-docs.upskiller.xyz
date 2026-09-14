@@ -10,6 +10,12 @@
 /* Import shared styles */
 @import './shared.css';
 
+/* Keep the home page in the sidebar tree (so the sidebar still renders
+   on it) but hide its own entry from the list — reached via slug: / . */
+.hidden-sidebar-item {
+  display: none;
+}
+
 /* Brand-aligned Infima variables */
 :root {
   /* Primary color: Spring Green */
