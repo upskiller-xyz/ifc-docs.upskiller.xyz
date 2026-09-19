@@ -13,6 +13,13 @@
 
 # Assets (fonts excluded from repo, use cloud storage in production)
 .assets
+/static/fonts/
+/static/img/
+
+# Claude Code / AI assistant files — local only, never committed
+CLAUDE.md
+INSTRUCTIONS.md
+settings.local.json
 
 # Misc
 .DS_Store

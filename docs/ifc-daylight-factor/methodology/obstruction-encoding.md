@@ -47,8 +47,6 @@ The vertical plane contains the window's viewing direction and the world up vect
 
 For a given direction, the angle equals `arctan(vertical_distance / horizontal_distance)` where vertical distance measures height difference from window to obstruction top, and horizontal distance measures ground-level distance along the viewing direction.
 
-![Obstruction angle calculation](https://upskiller-website.s3.fr-par.scw.cloud/docs.lux/obstruction_angle_explanation.png)
-
 ## Common Values
 
 Typical obstruction angles for reference:
