@@ -13,7 +13,7 @@ Check that:
 - The obstructions are complete and correct — nothing missing, nothing extra (balconies, overhangs, surrounding buildings). Verify this visually in the 3D view and with the sky obstruction diagram.
 - The room and every window have sensible parameters. Pay particular attention to the **Frame Ratio**: it sets how much of each opening is opaque, and the rest is treated as glass.
 
-<img src="/docs/img/ifc/room-properties.png" alt="Room Properties panel" width="330" />
+<img src="https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/room-properties.png" alt="Room Properties panel" width="330" />
 
 | Field | Meaning |
 |---|---|
@@ -30,7 +30,7 @@ Check that:
 
 The **Windows** section lists every window found in the room. Use the dropdown to inspect each one.
 
-![Room Properties window panel](/img/ifc/room-properties-window.png)
+![Room Properties window panel](https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/room-properties-window.png)
 
 | Field | Meaning |
 |---|---|

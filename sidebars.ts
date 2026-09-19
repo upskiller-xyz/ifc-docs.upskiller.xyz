@@ -4,17 +4,39 @@ const sidebars: SidebarsConfig = {
   mainSidebar: [
     {
       type: 'category',
-      label: 'IFC Daylight Factor',
+      label: 'Usage',
       collapsible: true,
       collapsed: false,
-      link: { type: 'doc', id: 'ifc-daylight-factor/intro' },
+      link: { type: 'doc', id: 'ifc-daylight-factor/usage' },
       items: [
+        'ifc-daylight-factor/intro',
         'ifc-daylight-factor/model-preparation',
         'ifc-daylight-factor/getting-started',
         'ifc-daylight-factor/analysis-settings',
         'ifc-daylight-factor/running-analysis',
         'ifc-daylight-factor/checking-inputs',
         'ifc-daylight-factor/results',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Methodology',
+      collapsible: true,
+      collapsed: true,
+      link: { type: 'doc', id: 'ifc-daylight-factor/methodology/intro' },
+      items: [
+        {
+          type: 'category',
+          label: 'How it works',
+          collapsible: true,
+          collapsed: true,
+          link: { type: 'doc', id: 'ifc-daylight-factor/methodology/how-it-works' },
+          items: [],
+        },
+        'ifc-daylight-factor/methodology/simulation-modes',
+        'ifc-daylight-factor/methodology/parameters',
+        'ifc-daylight-factor/methodology/obstruction-encoding',
+        'ifc-daylight-factor/methodology/accuracy-and-validation',
       ],
     },
     {
@@ -51,6 +73,7 @@ const sidebars: SidebarsConfig = {
         'contributing/templates',
       ],
     },
+    'about/intro',
   ],
 };
 

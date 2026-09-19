@@ -13,7 +13,7 @@ pagination_next: ifc-daylight-factor/analysis-settings
 
 ## Toolbar
 
-<img src="/docs/img/ifc/toolbar.png" alt="Scene toolbar" width="140" />
+<img src="https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/toolbar.png" alt="Scene toolbar" width="140" />
 
 | Button | Action |
 |---|---|

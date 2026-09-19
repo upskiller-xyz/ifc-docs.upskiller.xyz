@@ -249,7 +249,7 @@ Executes daylight simulation from room geometry and obstruction mesh.
 
 JSON object containing simulation results with base64-encoded numpy array and shape information.
 
-See [Parameters](https://docs.upskiller.xyz/docs/lux-live/methodology/parameters) for complete parameter specifications and [API Reference](./api-reference) for detailed documentation.
+See [Parameters](/docs/ifc-daylight-factor/methodology/parameters) for complete parameter specifications and [API Reference](./api-reference) for detailed documentation.
 
 **Example Requests**
 

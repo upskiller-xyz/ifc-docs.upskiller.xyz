@@ -1,7 +1,7 @@
-/* Fonts served from static/fonts — same path works in dev and production */
+/* Fonts served from the Scaleway bucket (not committed to git) */
 @font-face {
   font-family: 'AUTOMATE';
-  src: url('/fonts/AUTOMATELight.woff') format('woff');
+  src: url('https://upskiller-website.s3.fr-par.scw.cloud/upskiller/fonts/AUTOMATELight.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: 'AUTOMATE';
-  src: url('/fonts/AUTOMATEBold.woff') format('woff');
+  src: url('https://upskiller-website.s3.fr-par.scw.cloud/upskiller/fonts/AUTOMATEBold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

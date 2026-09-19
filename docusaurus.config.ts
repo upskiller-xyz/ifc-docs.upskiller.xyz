@@ -7,7 +7,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'IFC Daylight Factor Docs',
   tagline: 'Free browser-based daylight factor analysis for IFC models',
-  favicon: 'img/favicon.svg',
+  favicon: 'https://upskiller-website.s3.fr-par.scw.cloud/docs.lux/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
