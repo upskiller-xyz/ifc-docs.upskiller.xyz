@@ -8,7 +8,7 @@ pagination_next: null
 
 The **Result** panel opens on the right when you select a room, and fills in once the simulation finishes.
 
-![Result panel](/img/ifc/result.png)
+![Result panel](https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/result.png)
 
 - **Daylight Factor (DF) heatmap** on the room floor. Blue = 0%, red at 1–2%, green/white at 5–10%+.
 - **Area with DF ≥ 1%**: share of the floor that meets the threshold, shown as a percentage and in m² (e.g. 3.92 out of 9.73 m²).
