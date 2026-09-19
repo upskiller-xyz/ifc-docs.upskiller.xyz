@@ -21,6 +21,9 @@ CLAUDE.md
 INSTRUCTIONS.md
 settings.local.json
 
+# Local working notes — never committed
+/TODO.md
+
 # Misc
 .DS_Store
 .env.local
