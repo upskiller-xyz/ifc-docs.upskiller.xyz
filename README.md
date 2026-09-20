@@ -4,7 +4,6 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -317,11 +316,11 @@ npm run build
 
 ## License
 
-Distributed under the MIT License. See [LICENSE.md](./LICENSE.md) for more details — or [read a summary](https://choosealicense.com/licenses/mit/).
+Copyright © BIMTech Innovations AB. All rights reserved.
 
-In short:
+The documentation in this repository — the text, the diagrams and the site built from them — is **not** released under an open source license. No permission is granted to copy, republish, translate or adapt it, in whole or in part, without written consent. Quoting a short passage with attribution and a link is fine.
 
-Permissive. You **can** use, distribute and modify this code in both academic and commercial contexts. You **have to** keep the copyright notice and the license text with the code and give the appropriate [attribution](#trademark-notice) to the authors.
+The tool the docs describe, [`web-daylight-tool`](https://github.com/upskiller-xyz/web-daylight-tool), is MIT-licensed. That license covers its source code and does not extend to this content.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -329,7 +328,7 @@ Permissive. You **can** use, distribute and modify this code in both academic an
 
 - **"Upskiller"** is an informal collaborative name used by contributors affiliated with BIMTech Innovations AB.
 - BIMTech Innovations AB owns all legal rights to the **IFC Daylight Factor** project.
-- The MIT license applies to code, not branding. Commercial use of the names requires permission.
+- An open source license on our code never covers branding. Commercial use of the names requires permission.
 
 Contact: [Upskiller](mailto:info@upskiller.xyz)
 
@@ -363,5 +362,3 @@ Stanislava Fedorova - [e-mail](mailto:stasya.fedorova@gmail.com)
 [stars-url]: https://github.com/upskiller-xyz/ifc-docs.upskiller.xyz/stargazers
 [issues-shield]: https://img.shields.io/github/issues/upskiller-xyz/ifc-docs.upskiller.xyz.svg?style=for-the-badge
 [issues-url]: https://github.com/upskiller-xyz/ifc-docs.upskiller.xyz/issues
-[license-shield]: https://img.shields.io/github/license/upskiller-xyz/ifc-docs.upskiller.xyz.svg?style=for-the-badge
-[license-url]: https://github.com/upskiller-xyz/ifc-docs.upskiller.xyz/blob/master/LICENSE.md
