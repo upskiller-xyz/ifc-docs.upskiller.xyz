@@ -47,8 +47,11 @@ const config: Config = {
 
   themeConfig: {
     colorMode: {
-      defaultMode: 'light',
-      respectPrefersColorScheme: false,
+      // Follow the reader's OS setting; `defaultMode` is only the fallback for
+      // a browser that reports no preference at all. Dark is styled in
+      // src/css/custom.css, so both sides are real designs.
+      defaultMode: 'dark',
+      respectPrefersColorScheme: true,
     },
     navbar: {
       title: 'IFC Daylight Factor',

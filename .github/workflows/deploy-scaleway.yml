@@ -6,11 +6,7 @@ name: deploy-scaleway
 
 on:
   push:
-    # TEMPORARY: feat/cicd is here to rehearse the whole rollout before the
-    # branch is merged. On a push event GitHub reads the workflow from the
-    # pushed commit, so this runs for real from the branch. Remove the branch
-    # before merging — master is the only branch that should deploy.
-    branches: [master, feat/cicd]
+    branches: [master]
   workflow_dispatch: # allow manual redeploys from the Actions tab
 
 # Never run two deploys at once. cancel-in-progress: false = let a running deploy
