@@ -17,13 +17,13 @@ The window normal vector points toward the right edge of the image.
 
 ## Image Regions
 
-**Background**  - Fills entire image. Encodes floor height, facade reflectance, terrain reflectance, window orientation (DA modes).
+**Background** - Fills entire image. Encodes floor height, facade reflectance, terrain reflectance, window orientation (DA modes).
 
-**Room Polygon**  - Interior space mask. Encodes ceiling height, floor/wall/ceiling reflectances.
+**Room Polygon** - Interior space mask. Encodes ceiling height, floor/wall/ceiling reflectances.
 
-**Window**  - Vertical bar at fixed position. Encodes sill height, frame ratio, window height, frame reflectance.
+**Window** - Vertical bar at fixed position. Encodes sill height, frame ratio, window height, frame reflectance.
 
-**Obstruction Bar**  - 4×64 pixel bar at right edge. Each of 64 rows represents a horizontal azimuth angle (±72.5° from facade normal). Encodes obstruction angles (horizon and zenith), context reflectance, balcony reflectance.
+**Obstruction Bar** - 4×64 pixel bar at right edge. Each of 64 rows represents a horizontal azimuth angle (±72.5° from facade normal). Encodes obstruction angles (horizon and zenith), context reflectance, balcony reflectance.
 
 ## Boundaries
 
@@ -54,25 +54,24 @@ Each pixel's RGB and alpha channels encode geometric, radiometric, or contextual
 <details>
 <summary>Encoded Parameters</summary>
 
-| Feature | Image Element | Channel | Value Range | Used in Models |
-|---------|--------------|---------|-------------|----------------|
-| Window orientation | Background | Alpha | 0° (South) – 360° | DA, DA Custom |
-| Balcony underside reflectance | Obstruction bar | Alpha | 0–1 | DF/DA Custom |
-| Ceiling reflectance | Room | Alpha | 0.5–1 | DF/DA Custom |
-| Window frame reflectance | Window | Alpha | 0–1 | DF/DA Custom |
-| Terrain reflectance | Background | Red | 0–1 | DF/DA Custom |
-| Obstruction elevation angle (from zenith) | Obstruction bar | Red | 0°–70° | All models |
-| Wall / window niche reflectance | Room | Red | 0–1 | DF/DA Custom |
-| Window height | Window | Red | 0.2–5 m | All models |
-| Floor height above terrain | Background | Green | 0.1–10 m | All models |
-| Façade reflectance (context buildings) | Obstruction bar | Green | 0–0.6 (1 if unobstructed) | DF/DA Custom |
-| Floor / window sill reflectance | Room | Green | 0–1 | DF/DA Custom |
-| Window frame ratio (glazing area ratio) | Window | Green | 0–1 | All models |
-| Façade reflectance (own building) | Background | Blue | 0–1 | DF/DA Custom |
-| Obstruction angle (horizontal from façade normal) | Obstruction bar | Blue | 0°–90° | All models |
-| Height roof over floor | Room | Blue | 0–30 m | All models |
-| Window sill height over floor | Window | Blue | 0–5 m | All models |
-
+| Feature                                           | Image Element   | Channel | Value Range               | Used in Models |
+| ------------------------------------------------- | --------------- | ------- | ------------------------- | -------------- |
+| Window orientation                                | Background      | Alpha   | 0° (South) – 360°         | DA, DA Custom  |
+| Balcony underside reflectance                     | Obstruction bar | Alpha   | 0–1                       | DF/DA Custom   |
+| Ceiling reflectance                               | Room            | Alpha   | 0.5–1                     | DF/DA Custom   |
+| Window frame reflectance                          | Window          | Alpha   | 0–1                       | DF/DA Custom   |
+| Terrain reflectance                               | Background      | Red     | 0–1                       | DF/DA Custom   |
+| Obstruction elevation angle (from zenith)         | Obstruction bar | Red     | 0°–70°                    | All models     |
+| Wall / window niche reflectance                   | Room            | Red     | 0–1                       | DF/DA Custom   |
+| Window height                                     | Window          | Red     | 0.2–5 m                   | All models     |
+| Floor height above terrain                        | Background      | Green   | 0.1–10 m                  | All models     |
+| Façade reflectance (context buildings)            | Obstruction bar | Green   | 0–0.6 (1 if unobstructed) | DF/DA Custom   |
+| Floor / window sill reflectance                   | Room            | Green   | 0–1                       | DF/DA Custom   |
+| Window frame ratio (glazing area ratio)           | Window          | Green   | 0–1                       | All models     |
+| Façade reflectance (own building)                 | Background      | Blue    | 0–1                       | DF/DA Custom   |
+| Obstruction angle (horizontal from façade normal) | Obstruction bar | Blue    | 0°–90°                    | All models     |
+| Height roof over floor                            | Room            | Blue    | 0–30 m                    | All models     |
+| Window sill height over floor                     | Window          | Blue    | 0–5 m                     | All models     |
 
 Each channel is normalized to [0, 255] to match pixel intensity range.
 

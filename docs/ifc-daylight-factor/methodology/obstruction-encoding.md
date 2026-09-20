@@ -15,10 +15,10 @@ LUX uses two angle types, each sampled in **64 azimuth directions** across a **1
 field of view** (±72.5° from the window normal):
 
 - **Horizon angle** — measured upward from the horizontal through the window reference
-  point to the top of a *building* obstruction in that direction. Range 0–90°. `0°` = clear
+  point to the top of a _building_ obstruction in that direction. Range 0–90°. `0°` = clear
   sky down to the horizon; larger values = a closer or taller building.
 - **Zenith angle** — measured downward from the zenith to the underside of an overhead
-  obstruction, primarily the room's own *balcony* or a deep reveal. Range 0–70°.
+  obstruction, primarily the room's own _balcony_ or a deep reveal. Range 0–70°.
 
 A sector that is fully blocked is encoded with a **45° sentinel** value so the model can
 distinguish "completely obstructed" from a merely large angle.
@@ -54,14 +54,14 @@ Typical obstruction angles for reference:
 <details>
 <summary>Urban context examples</summary>
 
-| Context | Horizontal Angle | Zenith Angle | Description |
-|---------|------------------|--------------|-------------|
-| Open field | 0° | 70° | No obstructions |
-| Low suburban | 5-10° | 60-70° | Single-story neighbors |
-| Dense suburban | 15-25° | 50-60° | Two-story buildings |
-| Urban | 30-45° | 40-50° | 4-6 story buildings |
-| Dense urban | 50-70° | 20-40° | 8-12 story buildings |
-| High-rise canyon | 80-90° | 5-20° | Tall buildings close to facade |
+| Context          | Horizontal Angle | Zenith Angle | Description                    |
+| ---------------- | ---------------- | ------------ | ------------------------------ |
+| Open field       | 0°               | 70°          | No obstructions                |
+| Low suburban     | 5-10°            | 60-70°       | Single-story neighbors         |
+| Dense suburban   | 15-25°           | 50-60°       | Two-story buildings            |
+| Urban            | 30-45°           | 40-50°       | 4-6 story buildings            |
+| Dense urban      | 50-70°           | 20-40°       | 8-12 story buildings           |
+| High-rise canyon | 80-90°           | 5-20°        | Tall buildings close to facade |
 
 </details>
 

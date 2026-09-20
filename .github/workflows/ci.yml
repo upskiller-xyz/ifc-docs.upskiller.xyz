@@ -1,0 +1,38 @@
+# Quality gates for the docs site. Deployment lives in deploy-scaleway.yml —
+# this workflow only checks, it never ships.
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type-check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Run tests
+        run: npm test
+
+      # The real link check: onBrokenLinks is 'throw', so a dead internal link
+      # or a sidebar id with no file fails here.
+      - name: Build site
+        run: npm run build

@@ -70,8 +70,8 @@ print(response.json())
 const fetch = require('node-fetch');
 
 fetch('https://api-lux.upskiller.xyz/v2/')
-  .then(response => response.json())
-  .then(data => console.log(data));
+  .then((response) => response.json())
+  .then((data) => console.log(data));
 ```
 
 </TabItem>
@@ -249,7 +249,7 @@ Executes daylight simulation from room geometry and obstruction mesh.
 
 JSON object containing simulation results with base64-encoded numpy array and shape information.
 
-See [Parameters](/docs/ifc-daylight-factor/methodology/parameters) for complete parameter specifications and [API Reference](./api-reference) for detailed documentation.
+See [Parameters](/ifc-daylight-factor/methodology/parameters) for complete parameter specifications and [API Reference](./api-reference) for detailed documentation.
 
 **Example Requests**
 
@@ -330,36 +330,48 @@ else:
 ```javascript
 const fetch = require('node-fetch');
 
-const url = "https://api-lux.upskiller.xyz/v2/run";
+const url = 'https://api-lux.upskiller.xyz/v2/run';
 const payload = {
-    model_type: "df_default",
-    parameters: {
-        height_roof_over_floor: 2.7,
-        floor_height_above_terrain: 3.0,
-        room_polygon: [[0, 0], [5, 0], [5, 4], [0, 4]],
-        windows: {
-            main_window: {
-                x1: -0.6, y1: 0.0, z1: 0.9,
-                x2: 0.6, y2: 0.0, z2: 2.4,
-                window_frame_ratio: 0.15
-            }
-        }
+  model_type: 'df_default',
+  parameters: {
+    height_roof_over_floor: 2.7,
+    floor_height_above_terrain: 3.0,
+    room_polygon: [
+      [0, 0],
+      [5, 0],
+      [5, 4],
+      [0, 4],
+    ],
+    windows: {
+      main_window: {
+        x1: -0.6,
+        y1: 0.0,
+        z1: 0.9,
+        x2: 0.6,
+        y2: 0.0,
+        z2: 2.4,
+        window_frame_ratio: 0.15,
+      },
     },
-    mesh: [
-        [10, 0, 0], [10, 0, 5], [10, 10, 5], [10, 10, 0]
-    ]
+  },
+  mesh: [
+    [10, 0, 0],
+    [10, 0, 5],
+    [10, 10, 5],
+    [10, 10, 0],
+  ],
 };
 
 fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_TOKEN'
-    },
-    body: JSON.stringify(payload)
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer YOUR_API_TOKEN',
+  },
+  body: JSON.stringify(payload),
 })
-.then(response => response.json())
-.then(data => console.log(`Status: ${data.status}`));
+  .then((response) => response.json())
+  .then((data) => console.log(`Status: ${data.status}`));
 ```
 
 </TabItem>
@@ -411,10 +423,7 @@ if (response.IsSuccessStatusCode) {
 </TabItem>
 </Tabs>
 
-
-
 See complete schema: [Request Schema](https://github.com/upskiller-xyz/server_encoder/blob/main/docs/request_schema)
-
 
 ## Error Responses
 

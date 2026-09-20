@@ -1,0 +1,30 @@
+# Supply-chain check: fail the build on known-vulnerable dependencies, and
+# re-scan weekly so a newly-disclosed CVE in an unchanged lockfile is caught.
+name: security-audit
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      # GATE: fail on high/critical advisories in what actually ships. The built
+      # site is static HTML/JS, so build- and test-only advisories cannot reach
+      # a visitor.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+      # VISIBILITY: dev-tooling advisories — surfaced but non-blocking.
+      - name: Audit all dependencies (informational)
+        run: npm audit
+        continue-on-error: true

@@ -216,15 +216,22 @@ html[data-theme='dark'] body::before {
 }
 
 /* Typography adjustments per brand guidelines */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
 }
 
-p, li {
+p,
+li {
   font-weight: 300;
 }
 
-strong, b {
+strong,
+b {
   font-weight: 700;
 }
 
@@ -241,7 +248,7 @@ strong, b {
 }
 
 /* Lux illustration sizing */
-.markdown img[src*="heatmap_in_3d.png"] {
+.markdown img[src*='heatmap_in_3d.png'] {
   max-height: 30vh;
   width: auto;
   display: block;
@@ -249,7 +256,7 @@ strong, b {
 }
 
 @media (max-width: 768px) {
-  .markdown img[src*="heatmap_in_3d.png"] {
+  .markdown img[src*='heatmap_in_3d.png'] {
     max-height: 60vh;
   }
 }
@@ -356,16 +363,12 @@ details.alert summary {
 }
 
 /* Level-1 category title turns green when any descendant page is active */
-.theme-doc-sidebar-item-category-level-1:has(.menu__link--active)
-  > .menu__list-item-collapsible
-  > .menu__link {
+.theme-doc-sidebar-item-category-level-1:has(.menu__link--active) > .menu__list-item-collapsible > .menu__link {
   color: var(--ifm-color-primary);
 }
 
 /* Level-1 category title turns green when its own linked page is active */
-.theme-doc-sidebar-item-category-level-1
-  > .menu__list-item-collapsible--active
-  > .menu__link {
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible--active > .menu__link {
   color: var(--ifm-color-primary);
 }
 
@@ -459,7 +462,7 @@ details.alert summary {
 
   /* Hide the home icon on mobile; the hamburger sits in its place.
      The hamburger li is first; the home li follows. */
-  nav.theme-doc-breadcrumbs .breadcrumbs > .breadcrumbs__item:nth-child(2):has(a[aria-label*="Home"]) {
+  nav.theme-doc-breadcrumbs .breadcrumbs > .breadcrumbs__item:nth-child(2):has(a[aria-label*='Home']) {
     display: none;
   }
 

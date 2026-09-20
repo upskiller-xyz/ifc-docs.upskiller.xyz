@@ -1,6 +1,6 @@
 # Dependencies
 /node_modules
-
+DEPLOYMENT.md
 # Production
 /build
 .claude
@@ -34,3 +34,6 @@ settings.local.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Test output
+/coverage

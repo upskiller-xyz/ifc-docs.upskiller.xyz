@@ -67,6 +67,7 @@ curl http://localhost:8080/
 ```
 
 Expected response:
+
 ```json
 {
   "status": "running",
@@ -84,14 +85,14 @@ Expected response:
 
 When running locally, services are available at:
 
-| Service | Port | URL |
-|---------|------|-----|
+| Service      | Port | URL                   |
+| ------------ | ---- | --------------------- |
 | Main Gateway | 8080 | http://localhost:8080 |
-| Obstruction | 8081 | http://localhost:8081 |
-| Encoder | 8082 | http://localhost:8082 |
-| Model | 8083 | http://localhost:8083 |
-| Merger | 8084 | http://localhost:8084 |
-| Stats | 8085 | http://localhost:8085 |
+| Obstruction  | 8081 | http://localhost:8081 |
+| Encoder      | 8082 | http://localhost:8082 |
+| Model        | 8083 | http://localhost:8083 |
+| Merger       | 8084 | http://localhost:8084 |
+| Stats        | 8085 | http://localhost:8085 |
 
 ## Common Operations
 
@@ -121,7 +122,7 @@ If ports are already in use, modify port mappings in `docker-compose-full-stack.
 
 ```yaml
 ports:
-  - "9080:8080"  # Change left side to different port
+  - '9080:8080' # Change left side to different port
 ```
 
 ### Services Not Communicating
@@ -142,7 +143,7 @@ docker-compose -f deployment/docker-compose-full-stack.yml up -d
 
 ## Microservices
 
-See [Microservices Architecture](/docs/contributing/microservices) for detailed information about each service.
+See [Microservices Architecture](/contributing/microservices) for detailed information about each service.
 
 ## Next Steps
 

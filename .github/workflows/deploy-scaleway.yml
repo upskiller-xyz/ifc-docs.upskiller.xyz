@@ -1,0 +1,85 @@
+# Primary deployment: build the Docker image and roll it out to a Scaleway
+# Serverless Container. Fires on every push to master (same pattern as
+# web-daylight-tool). CI (test/lint/typecheck/build) runs separately in ci.yml —
+# this workflow only ships, so keep the two concerns apart.
+name: deploy-scaleway
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch: # allow manual redeploys from the Actions tab
+
+# Never run two deploys at once. cancel-in-progress: false = let a running deploy
+# finish and queue the next one behind it (don't abort a half-done rollout — a
+# newer push just deploys once the current one lands).
+concurrency:
+  group: deploy-scaleway
+  cancel-in-progress: false
+
+env:
+  # Full Scaleway Container Registry namespace, e.g. rg.fr-par.scw.cloud/lux-web.
+  # Used for image tags. The bare host (rg.fr-par.scw.cloud) is derived from it
+  # for docker login — see the meta step.
+  REGISTRY: ${{ vars.SCW_REGISTRY }}
+  IMAGE_NAME: ifc-docs
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Same tag convention as web-daylight-tool: an immutable per-commit tag
+      # plus a moving "edge" tag for the latest master build.
+      - name: Compute image tags
+        id: meta
+        run: |
+          echo "image=${REGISTRY}/${IMAGE_NAME}:${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+          echo "edge=${REGISTRY}/${IMAGE_NAME}:edge" >> "$GITHUB_OUTPUT"
+          # docker login wants the registry HOST only, not the image namespace/path.
+          echo "host=${REGISTRY%%/*}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Registry login: Scaleway accepts any username with the secret key as the
+      # password (use "nologin" by convention).
+      - name: Log in to Scaleway Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ steps.meta.outputs.host }}
+          username: nologin
+          password: ${{ secrets.SCW_SECRET_KEY }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ steps.meta.outputs.image }}
+            ${{ steps.meta.outputs.edge }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # Point the existing Serverless Container at the new image tag and
+      # redeploy it. The container itself (scaling, memory, domain) is
+      # provisioned once out-of-band — see DEPLOYMENT.md. CI only swaps the image.
+      - name: Install Scaleway CLI
+        uses: scaleway/action-scw@v0
+        with:
+          version: latest
+          access-key: ${{ secrets.SCW_ACCESS_KEY }}
+          secret-key: ${{ secrets.SCW_SECRET_KEY }}
+          default-organization-id: ${{ secrets.SCW_DEFAULT_ORGANIZATION_ID }}
+          default-project-id: ${{ secrets.SCW_DEFAULT_PROJECT_ID }}
+          export-config: true
+
+      - name: Deploy new image to Serverless Container
+        run: |
+          # Setting a new image already triggers the rollout (status -> updating),
+          # so no separate redeploy — it would fail with a transient-state error
+          # while the container is mid-update. Our per-commit sha tag is always
+          # new, so update never no-ops on a push.
+          scw container container update "${{ secrets.SCW_CONTAINER_ID }}" \
+            image="${{ steps.meta.outputs.image }}"

@@ -52,6 +52,7 @@ IFC export metadata reduced to IFC basics. No Revit property sets included.
 ### Level 5: Essential Geometry Only
 
 **Method** - Send only essential geometric primitives:
+
 - Floor area instead of full room geometry
 - Window reveal area instead of full window geometry
 - Minimal representation of other elements
@@ -70,12 +71,12 @@ IFC export metadata reduced to IFC basics. No Revit property sets included.
 
 Performance test: each file uploaded 10 times, measuring client round-trip time.
 
-| File | Size (MB) | Avg Time (ms) | Std Dev (ms) | Min (ms) | Max (ms) |
-|------|-----------|---------------|--------------|----------|----------|
-| Level 1 (A-40-V-100A_1_Max.ifc) | 28.2 | 3513 | 183 | 3209 | 3916 |
-| Level 2 (A-40-V-100A_2.ifc) | 5.8 | 688 | 29 | 656 | 752 |
-| Level 4 (A-40-V-100A_4.ifc) | 4.8 | 616 | 21 | 590 | 652 |
-| Level 3 (A-40-V-100A_3.ifc) | 3.6 | 465 | 21 | 427 | 493 |
+| File                            | Size (MB) | Avg Time (ms) | Std Dev (ms) | Min (ms) | Max (ms) |
+| ------------------------------- | --------- | ------------- | ------------ | -------- | -------- |
+| Level 1 (A-40-V-100A_1_Max.ifc) | 28.2      | 3513          | 183          | 3209     | 3916     |
+| Level 2 (A-40-V-100A_2.ifc)     | 5.8       | 688           | 29           | 656      | 752      |
+| Level 4 (A-40-V-100A_4.ifc)     | 4.8       | 616           | 21           | 590      | 652      |
+| Level 3 (A-40-V-100A_3.ifc)     | 3.6       | 465           | 21           | 427      | 493      |
 
 **Maximum upload time**: 3.5 seconds (Level 1, 28.2 MB file)
 

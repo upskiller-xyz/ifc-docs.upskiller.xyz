@@ -15,20 +15,20 @@ Complete API documentation with request/response schemas: [Swagger UI](https://a
 
 ## Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| / | GET | Server health check |
-| /run | POST | End-to-end daylight simulation |
-| /obstruction_all | POST | Calculate obstruction angles in 64 directions |
-| /horizon | POST | Calculate single horizon angle |
-| /zenith | POST | Calculate single zenith angle |
-| /obstruction | POST | Calculate both horizon and zenith for one direction |
-| /get-reference-point | POST | Get window center point |
-| /calculate-direction | POST | Get window normal direction |
-| /encode | POST | Encode room parameters to model input |
-| /encode_raw | POST | Encode with pre-calculated angles |
-| /stats | POST | Calculate daylight statistics |
-| /merge | POST | Merge multiple window results |
+| Endpoint             | Method | Description                                         |
+| -------------------- | ------ | --------------------------------------------------- |
+| /                    | GET    | Server health check                                 |
+| /run                 | POST   | End-to-end daylight simulation                      |
+| /obstruction_all     | POST   | Calculate obstruction angles in 64 directions       |
+| /horizon             | POST   | Calculate single horizon angle                      |
+| /zenith              | POST   | Calculate single zenith angle                       |
+| /obstruction         | POST   | Calculate both horizon and zenith for one direction |
+| /get-reference-point | POST   | Get window center point                             |
+| /calculate-direction | POST   | Get window normal direction                         |
+| /encode              | POST   | Encode room parameters to model input               |
+| /encode_raw          | POST   | Encode with pre-calculated angles                   |
+| /stats               | POST   | Calculate daylight statistics                       |
+| /merge               | POST   | Merge multiple window results                       |
 
 ---
 
@@ -85,8 +85,8 @@ print(response.json())
 const fetch = require('node-fetch');
 
 fetch('https://api-lux.upskiller.xyz/v2/')
-  .then(res => res.json())
-  .then(data => console.log(data));
+  .then((res) => res.json())
+  .then((data) => console.log(data));
 ```
 
 </TabItem>
@@ -112,13 +112,13 @@ Executes complete daylight simulation: obstruction calculation, encoding, and mo
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
-| model_type | string | `df_default`, `da_default`, `df_custom`, or `da_custom` |
-| parameters | object | Room and window geometry |
-| mesh | array | Triangle mesh. Each 3 consecutive `[x, y, z]` points form a triangle |
-| horizon | array | (Optional) Pre-calculated horizon angles (64 floats). Can be at top level or per-window |
-| zenith | array | (Optional) Pre-calculated zenith angles (64 floats). Can be at top level or per-window |
+| Property   | Type   | Description                                                                             |
+| ---------- | ------ | --------------------------------------------------------------------------------------- |
+| model_type | string | `df_default`, `da_default`, `df_custom`, or `da_custom`                                 |
+| parameters | object | Room and window geometry                                                                |
+| mesh       | array  | Triangle mesh. Each 3 consecutive `[x, y, z]` points form a triangle                    |
+| horizon    | array  | (Optional) Pre-calculated horizon angles (64 floats). Can be at top level or per-window |
+| zenith     | array  | (Optional) Pre-calculated zenith angles (64 floats). Can be at top level or per-window  |
 
 When both `horizon` and `zenith` are provided, obstruction calculation is skipped, improving performance by 30-50%.
 
@@ -127,25 +127,25 @@ When both `horizon` and `zenith` are provided, obstruction calculation is skippe
 <details>
 <summary>Required properties</summary>
 
-| Property | Type | Range | Unit | Description |
-|----------|------|-------|------|-------------|
-| height_roof_over_floor | float | 0-30 | m | Floor to ceiling distance |
-| floor_height_above_terrain | float | 0-10 | m | Floor elevation above ground |
-| room_polygon | array | - | m | Room outline as `[[x, y], ...]` coordinate pairs |
-| windows | object | - | - | Window definitions keyed by ID |
+| Property                   | Type   | Range | Unit | Description                                      |
+| -------------------------- | ------ | ----- | ---- | ------------------------------------------------ |
+| height_roof_over_floor     | float  | 0-30  | m    | Floor to ceiling distance                        |
+| floor_height_above_terrain | float  | 0-10  | m    | Floor elevation above ground                     |
+| room_polygon               | array  | -     | m    | Room outline as `[[x, y], ...]` coordinate pairs |
+| windows                    | object | -     | -    | Window definitions keyed by ID                   |
 
 </details>
 
 <details>
 <summary>Optional properties</summary>
 
-| Property | Type | Range | Description |
-|----------|------|-------|-------------|
-| ceiling_reflectance | float | 0.50-0.90 | Light reflectance of ceiling (default 0.80) |
-| horizontal_reflectance | float | 0.05-0.60 | Light reflectance of floor (default 0.30) |
-| vertical_reflectance | float | 0.30-0.90 | Light reflectance of walls (default 0.70) |
-| facade_reflectance | float | 0.10-0.60 | Light reflectance of facade (default 0.30) |
-| terrain_reflectance | float | 0.05-0.40 | Light reflectance of ground (default 0.20) |
+| Property               | Type  | Range     | Description                                 |
+| ---------------------- | ----- | --------- | ------------------------------------------- |
+| ceiling_reflectance    | float | 0.50-0.90 | Light reflectance of ceiling (default 0.80) |
+| horizontal_reflectance | float | 0.05-0.60 | Light reflectance of floor (default 0.30)   |
+| vertical_reflectance   | float | 0.30-0.90 | Light reflectance of walls (default 0.70)   |
+| facade_reflectance     | float | 0.10-0.60 | Light reflectance of facade (default 0.30)  |
+| terrain_reflectance    | float | 0.05-0.40 | Light reflectance of ground (default 0.20)  |
 
 </details>
 
@@ -154,21 +154,21 @@ When both `horizon` and `zenith` are provided, obstruction calculation is skippe
 <details>
 <summary>Required properties per window</summary>
 
-| Property | Type | Range | Unit | Description |
-|----------|------|-------|------|-------------|
-| x1, y1, z1 | float | - | m | First corner of window bounding box |
-| x2, y2, z2 | float | - | m | Opposite corner of window bounding box |
-| window_frame_ratio | float | 0-1 | - | Fraction of window occupied by frame |
+| Property           | Type  | Range | Unit | Description                            |
+| ------------------ | ----- | ----- | ---- | -------------------------------------- |
+| x1, y1, z1         | float | -     | m    | First corner of window bounding box    |
+| x2, y2, z2         | float | -     | m    | Opposite corner of window bounding box |
+| window_frame_ratio | float | 0-1   | -    | Fraction of window occupied by frame   |
 
 </details>
 
 <details>
 <summary>Optional properties per window</summary>
 
-| Property | Type | Description |
-|----------|------|-------------|
-| horizon | array | Pre-calculated horizon angles (64 floats) for this window |
-| zenith | array | Pre-calculated zenith angles (64 floats) for this window |
+| Property | Type  | Description                                               |
+| -------- | ----- | --------------------------------------------------------- |
+| horizon  | array | Pre-calculated horizon angles (64 floats) for this window |
+| zenith   | array | Pre-calculated zenith angles (64 floats) for this window  |
 
 When specified per-window, these override top-level values for that specific window.
 
@@ -182,18 +182,31 @@ When specified per-window, these override top-level values for that specific win
   "parameters": {
     "height_roof_over_floor": 2.7,
     "floor_height_above_terrain": 0.5,
-    "room_polygon": [[0, 0], [0, 5], [-4, 5], [-4, 0]],
+    "room_polygon": [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0]
+    ],
     "windows": {
       "main_window": {
-        "x1": -0.5, "y1": 5, "z1": 0.9,
-        "x2": -2, "y2": 5.2, "z2": 2.4,
+        "x1": -0.5,
+        "y1": 5,
+        "z1": 0.9,
+        "x2": -2,
+        "y2": 5.2,
+        "z2": 2.4,
         "window_frame_ratio": 0.2
       }
     }
   },
   "mesh": [
-    [10, 0, 0], [10, 0, 8], [10, 20, 8],
-    [10, 20, 8], [10, 20, 0], [10, 0, 0]
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+    [10, 20, 8],
+    [10, 20, 0],
+    [10, 0, 0]
   ]
 }
 ```
@@ -209,21 +222,34 @@ Skip obstruction calculation by providing `horizon` and `zenith` arrays at the t
   "parameters": {
     "height_roof_over_floor": 2.7,
     "floor_height_above_terrain": 0.5,
-    "room_polygon": [[0, 0], [0, 5], [-4, 5], [-4, 0]],
+    "room_polygon": [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0]
+    ],
     "windows": {
       "main_window": {
-        "x1": -0.5, "y1": 5, "z1": 0.9,
-        "x2": -2, "y2": 5.2, "z2": 2.4,
+        "x1": -0.5,
+        "y1": 5,
+        "z1": 0.9,
+        "x2": -2,
+        "y2": 5.2,
+        "z2": 2.4,
         "window_frame_ratio": 0.2
       }
     }
   },
   "mesh": [
-    [10, 0, 0], [10, 0, 8], [10, 20, 8],
-    [10, 20, 8], [10, 20, 0], [10, 0, 0]
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+    [10, 20, 8],
+    [10, 20, 0],
+    [10, 0, 0]
   ],
-  "horizon": [15.5, 16.2, 14.8, /* ... 64 values total */],
-  "zenith": [10.2, 11.1, 9.8, /* ... 64 values total */]
+  "horizon": [15.5, 16.2, 14.8 /* ... 64 values total */],
+  "zenith": [10.2, 11.1, 9.8 /* ... 64 values total */]
 }
 ```
 
@@ -235,25 +261,42 @@ Or specify per-window for multi-window scenarios:
   "parameters": {
     "height_roof_over_floor": 2.7,
     "floor_height_above_terrain": 0.5,
-    "room_polygon": [[0, 0], [0, 5], [-4, 5], [-4, 0]],
+    "room_polygon": [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0]
+    ],
     "windows": {
       "window_1": {
-        "x1": -0.5, "y1": 5, "z1": 0.9,
-        "x2": -2, "y2": 5.2, "z2": 2.4,
+        "x1": -0.5,
+        "y1": 5,
+        "z1": 0.9,
+        "x2": -2,
+        "y2": 5.2,
+        "z2": 2.4,
         "window_frame_ratio": 0.2,
-        "horizon": [30, 30, /* ... 64 values */],
-        "zenith": [30, 30, /* ... 64 values */]
+        "horizon": [30, 30 /* ... 64 values */],
+        "zenith": [30, 30 /* ... 64 values */]
       },
       "window_2": {
-        "x1": 0, "y1": 1, "z1": 0.9,
-        "x2": 0.4, "y2": 4, "z2": 2.4,
+        "x1": 0,
+        "y1": 1,
+        "z1": 0.9,
+        "x2": 0.4,
+        "y2": 4,
+        "z2": 2.4,
         "window_frame_ratio": 0.2,
-        "horizon": [0, 0, /* ... 64 values */],
-        "zenith": [0, 0, /* ... 64 values */]
+        "horizon": [0, 0 /* ... 64 values */],
+        "zenith": [0, 0 /* ... 64 values */]
       }
     }
   },
-  "mesh": [[10, 0, 0], [10, 0, 8], [10, 20, 8]]
+  "mesh": [
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8]
+  ]
 }
 ```
 
@@ -340,37 +383,50 @@ print(f"Status: {result['status']}")
 ```javascript
 const fetch = require('node-fetch');
 
-const url = "https://api-lux.upskiller.xyz/v2/run";
+const url = 'https://api-lux.upskiller.xyz/v2/run';
 const payload = {
-    model_type: "df_default",
-    parameters: {
-        height_roof_over_floor: 2.7,
-        floor_height_above_terrain: 0.5,
-        room_polygon: [[0, 0], [0, 5], [-4, 5], [-4, 0]],
-        windows: {
-            main_window: {
-                x1: -0.5, y1: 5, z1: 0.9,
-                x2: -2, y2: 5.2, z2: 2.4,
-                window_frame_ratio: 0.2
-            }
-        }
+  model_type: 'df_default',
+  parameters: {
+    height_roof_over_floor: 2.7,
+    floor_height_above_terrain: 0.5,
+    room_polygon: [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0],
+    ],
+    windows: {
+      main_window: {
+        x1: -0.5,
+        y1: 5,
+        z1: 0.9,
+        x2: -2,
+        y2: 5.2,
+        z2: 2.4,
+        window_frame_ratio: 0.2,
+      },
     },
-    mesh: [
-        [10, 0, 0], [10, 0, 8], [10, 20, 8],
-        [10, 20, 8], [10, 20, 0], [10, 0, 0]
-    ]
+  },
+  mesh: [
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+    [10, 20, 8],
+    [10, 20, 0],
+    [10, 0, 0],
+  ],
 };
 
 fetch(url, {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
 })
-.then(res => res.json())
-.then(data => console.log(`Status: ${data.status}`));
+  .then((res) => res.json())
+  .then((data) => console.log(`Status: ${data.status}`));
 ```
 
 </TabItem>
@@ -425,11 +481,11 @@ Calculates horizon and zenith angles in 64 directions around a window.
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
-| room_polygon | array | Room outline as `[[x, y], ...]` coordinate pairs |
-| windows | object | Window definitions (same format as `/run`) |
-| mesh | array | Triangle mesh as `[x, y, z]` points |
+| Property     | Type   | Description                                      |
+| ------------ | ------ | ------------------------------------------------ |
+| room_polygon | array  | Room outline as `[[x, y], ...]` coordinate pairs |
+| windows      | object | Window definitions (same format as `/run`)       |
+| mesh         | array  | Triangle mesh as `[x, y, z]` points              |
 
 The endpoint calculates reference points and direction angles automatically from window geometry.
 
@@ -511,36 +567,45 @@ print(f"Zenith angles: {result['zenith'][:3]}...")
 ```javascript
 const fetch = require('node-fetch');
 
-const url = "https://api-lux.upskiller.xyz/v2/obstruction_all";
+const url = 'https://api-lux.upskiller.xyz/v2/obstruction_all';
 const payload = {
-    room_polygon: [[0, 0], [0, 7], [-3, 7], [-3, 0]],
-    windows: {
-        window_1: {
-            x1: -1.0,
-            y1: 7,
-            z1: 2.8,
-            x2: -2,
-            y2: 7.3,
-            z2: 5.4,
-            window_frame_ratio: 0.41
-        }
+  room_polygon: [
+    [0, 0],
+    [0, 7],
+    [-3, 7],
+    [-3, 0],
+  ],
+  windows: {
+    window_1: {
+      x1: -1.0,
+      y1: 7,
+      z1: 2.8,
+      x2: -2,
+      y2: 7.3,
+      z2: 5.4,
+      window_frame_ratio: 0.41,
     },
-    mesh: [
-        [10, 0, 0], [10, 0, 8], [10, 20, 8],
-        [10, 20, 8], [10, 20, 0], [10, 0, 0]
-    ]
+  },
+  mesh: [
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+    [10, 20, 8],
+    [10, 20, 0],
+    [10, 0, 0],
+  ],
 };
 
 fetch(url, {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
 })
-.then(res => res.json())
-.then(data => console.log(`Got ${data.horizon.length} angles`));
+  .then((res) => res.json())
+  .then((data) => console.log(`Got ${data.horizon.length} angles`));
 ```
 
 </TabItem>
@@ -590,13 +655,13 @@ Calculates single horizon obstruction angle for a specific direction.
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
-| x | float | Window center X coordinate |
-| y | float | Window center Y coordinate |
-| z | float | Window center Z coordinate |
+| Property        | Type  | Description                        |
+| --------------- | ----- | ---------------------------------- |
+| x               | float | Window center X coordinate         |
+| y               | float | Window center Y coordinate         |
+| z               | float | Window center Z coordinate         |
 | direction_angle | float | Direction angle in degrees (0-360) |
-| mesh | array | Triangle mesh |
+| mesh            | array | Triangle mesh                      |
 
 **Response**
 
@@ -652,22 +717,26 @@ print(f"Horizon angle: {result['horizon']}°")
 ```javascript
 const fetch = require('node-fetch');
 
-fetch("https://api-lux.upskiller.xyz/v2/horizon", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        x: 0.0,
-        y: 3.0,
-        z: 1.5,
-        direction_angle: 90.0,
-        mesh: [[10, 0, 0], [10, 0, 8], [10, 20, 8]]
-    })
+fetch('https://api-lux.upskiller.xyz/v2/horizon', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    x: 0.0,
+    y: 3.0,
+    z: 1.5,
+    direction_angle: 90.0,
+    mesh: [
+      [10, 0, 0],
+      [10, 0, 8],
+      [10, 20, 8],
+    ],
+  }),
 })
-.then(res => res.json())
-.then(data => console.log(`Horizon angle: ${data.horizon}°`));
+  .then((res) => res.json())
+  .then((data) => console.log(`Horizon angle: ${data.horizon}°`));
 ```
 
 </TabItem>
@@ -726,13 +795,13 @@ Calculates both horizon and zenith angles in a single request for a specific dir
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
-| x | float | Window center X coordinate |
-| y | float | Window center Y coordinate |
-| z | float | Window center Z coordinate |
+| Property        | Type  | Description                        |
+| --------------- | ----- | ---------------------------------- |
+| x               | float | Window center X coordinate         |
+| y               | float | Window center Y coordinate         |
+| z               | float | Window center Z coordinate         |
 | direction_angle | float | Direction angle in degrees (0-360) |
-| mesh | array | Triangle mesh |
+| mesh            | array | Triangle mesh                      |
 
 **Response**
 
@@ -743,13 +812,13 @@ Calculates both horizon and zenith angles in a single request for a specific dir
     "horizon": {
       "obstruction_angle_degrees": 26.57,
       "obstruction_angle_radians": 0.4636,
-      "highest_point": {"x": 10.0, "y": 0.0, "z": 8.0},
+      "highest_point": { "x": 10.0, "y": 0.0, "z": 8.0 },
       "projected_point_count": 6
     },
     "zenith": {
       "obstruction_angle_degrees": 56.31,
       "obstruction_angle_radians": 0.9828,
-      "highest_point": {"x": 8.0, "y": 0.0, "z": 5.0},
+      "highest_point": { "x": 8.0, "y": 0.0, "z": 5.0 },
       "projected_point_count": 6
     }
   }
@@ -791,28 +860,32 @@ print(f"Zenith: {result['data']['zenith']['obstruction_angle_degrees']:.2f}°")
 ```javascript
 const fetch = require('node-fetch');
 
-fetch("https://api-lux.upskiller.xyz/v2/obstruction", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        x: 0.0,
-        y: 3.0,
-        z: 1.5,
-        direction_angle: 90.0,
-        mesh: [
-            [10, 0, 0], [10, 0, 8], [10, 20, 8],
-            [10, 20, 8], [10, 20, 0], [10, 0, 0]
-        ]
-    })
+fetch('https://api-lux.upskiller.xyz/v2/obstruction', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    x: 0.0,
+    y: 3.0,
+    z: 1.5,
+    direction_angle: 90.0,
+    mesh: [
+      [10, 0, 0],
+      [10, 0, 8],
+      [10, 20, 8],
+      [10, 20, 8],
+      [10, 20, 0],
+      [10, 0, 0],
+    ],
+  }),
 })
-.then(res => res.json())
-.then(data => {
+  .then((res) => res.json())
+  .then((data) => {
     console.log(`Horizon: ${data.data.horizon.obstruction_angle_degrees.toFixed(2)}°`);
     console.log(`Zenith: ${data.data.zenith.obstruction_angle_degrees.toFixed(2)}°`);
-});
+  });
 ```
 
 </TabItem>
@@ -874,10 +947,10 @@ Returns the center point (reference point) of each window for obstruction calcul
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
-| room_polygon | array | Room outline as `[[x, y], ...]` |
-| windows | object | Window definitions |
+| Property     | Type   | Description                     |
+| ------------ | ------ | ------------------------------- |
+| room_polygon | array  | Room outline as `[[x, y], ...]` |
+| windows      | object | Window definitions              |
 
 **Response**
 
@@ -886,7 +959,7 @@ Returns the center point (reference point) of each window for obstruction calcul
   "status": "success",
   "windows": {
     "test_window": {
-      "reference_point": {"x": -1.2, "y": 7.1, "z": 4.1}
+      "reference_point": { "x": -1.2, "y": 7.1, "z": 4.1 }
     }
   }
 }
@@ -923,24 +996,33 @@ print(result['windows']['test_window']['reference_point'])
 ```javascript
 const fetch = require('node-fetch');
 
-fetch("https://api-lux.upskiller.xyz/v2/get-reference-point", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
+fetch('https://api-lux.upskiller.xyz/v2/get-reference-point', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    room_polygon: [
+      [0, 0],
+      [0, 7],
+      [-3, 7],
+      [-3, 0],
+    ],
+    windows: {
+      test_window: {
+        x1: -2,
+        y1: 7,
+        z1: 2.8,
+        x2: -0.4,
+        y2: 7.2,
+        z2: 5.4,
+      },
     },
-    body: JSON.stringify({
-        room_polygon: [[0, 0], [0, 7], [-3, 7], [-3, 0]],
-        windows: {
-            test_window: {
-                x1: -2, y1: 7, z1: 2.8,
-                x2: -0.4, y2: 7.2, z2: 5.4
-            }
-        }
-    })
+  }),
 })
-.then(res => res.json())
-.then(data => console.log(data.windows.test_window.reference_point));
+  .then((res) => res.json())
+  .then((data) => console.log(data.windows.test_window.reference_point));
 ```
 
 </TabItem>
@@ -1026,11 +1108,11 @@ Encodes room and window parameters into model input format (ZIP file with NPY ar
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
+| Property   | Type   | Description                     |
+| ---------- | ------ | ------------------------------- |
 | model_type | string | Model type (`df_default`, etc.) |
-| parameters | object | Room and window geometry |
-| mesh | array | Triangle mesh |
+| parameters | object | Room and window geometry        |
+| mesh       | array  | Triangle mesh                   |
 
 **Response**
 
@@ -1082,38 +1164,51 @@ with zipfile.ZipFile(zip_buffer, 'r') as zip_file:
 const fetch = require('node-fetch');
 const AdmZip = require('adm-zip');
 
-const url = "https://api-lux.upskiller.xyz/v2/encode";
+const url = 'https://api-lux.upskiller.xyz/v2/encode';
 const payload = {
-    model_type: "df_default",
-    parameters: {
-        height_roof_over_floor: 2.7,
-        floor_height_above_terrain: 0.5,
-        room_polygon: [[0, 0], [0, 5], [-4, 5], [-4, 0]],
-        windows: {
-            main_window: {
-                x1: -0.5, y1: 5, z1: 0.9,
-                x2: -2, y2: 5.2, z2: 2.4,
-                window_frame_ratio: 0.2
-            }
-        }
+  model_type: 'df_default',
+  parameters: {
+    height_roof_over_floor: 2.7,
+    floor_height_above_terrain: 0.5,
+    room_polygon: [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0],
+    ],
+    windows: {
+      main_window: {
+        x1: -0.5,
+        y1: 5,
+        z1: 0.9,
+        x2: -2,
+        y2: 5.2,
+        z2: 2.4,
+        window_frame_ratio: 0.2,
+      },
     },
-    mesh: [[10, 0, 0], [10, 0, 8], [10, 20, 8]]
+  },
+  mesh: [
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+  ],
 };
 
 fetch(url, {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(payload),
 })
-.then(res => res.buffer())
-.then(buffer => {
+  .then((res) => res.buffer())
+  .then((buffer) => {
     const zip = new AdmZip(buffer);
     const zipEntries = zip.getEntries();
-    console.log(`ZIP contains: ${zipEntries.map(e => e.entryName)}`);
-});
+    console.log(`ZIP contains: ${zipEntries.map((e) => e.entryName)}`);
+  });
 ```
 
 </TabItem>
@@ -1215,8 +1310,8 @@ Calculates statistical metrics for daylight simulation results.
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
+| Property  | Type  | Description                        |
+| --------- | ----- | ---------------------------------- |
 | df_matrix | array | 2D array of daylight factor values |
 | room_mask | array | 2D boolean array marking room area |
 
@@ -1262,19 +1357,25 @@ print(f"Median DF: {result['median']}%")
 ```javascript
 const fetch = require('node-fetch');
 
-fetch("https://api-lux.upskiller.xyz/v2/stats", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        df_matrix: [[1.2, 1.5, 1.8], [2.0, 2.3, 2.5]],
-        room_mask: [[true, true, true], [true, true, true]]
-    })
+fetch('https://api-lux.upskiller.xyz/v2/stats', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    df_matrix: [
+      [1.2, 1.5, 1.8],
+      [2.0, 2.3, 2.5],
+    ],
+    room_mask: [
+      [true, true, true],
+      [true, true, true],
+    ],
+  }),
 })
-.then(res => res.json())
-.then(data => console.log(`Mean DF: ${data.mean}%`));
+  .then((res) => res.json())
+  .then((data) => console.log(`Mean DF: ${data.mean}%`));
 ```
 
 </TabItem>
@@ -1330,8 +1431,8 @@ Merges multiple window simulation results into a single combined image.
 
 **Request Body**
 
-| Property | Type | Description |
-|----------|------|-------------|
+| Property       | Type   | Description                       |
+| -------------- | ------ | --------------------------------- |
 | window_results | object | Window results keyed by window ID |
 
 Each window result contains `df_matrix` and `room_mask` arrays.
@@ -1382,27 +1483,39 @@ print(f"Merged matrix shape: {len(result['merged_result']['df_matrix'])}")
 ```javascript
 const fetch = require('node-fetch');
 
-fetch("https://api-lux.upskiller.xyz/v2/merge", {
-    method: 'POST',
-    headers: {
-        'Authorization': 'Bearer YOUR_API_TOKEN',
-        'Content-Type': 'application/json'
+fetch('https://api-lux.upskiller.xyz/v2/merge', {
+  method: 'POST',
+  headers: {
+    Authorization: 'Bearer YOUR_API_TOKEN',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    window_results: {
+      window_1: {
+        df_matrix: [
+          [1.2, 1.5],
+          [2.0, 2.3],
+        ],
+        room_mask: [
+          [true, true],
+          [true, true],
+        ],
+      },
+      window_2: {
+        df_matrix: [
+          [0.8, 1.0],
+          [1.5, 1.8],
+        ],
+        room_mask: [
+          [true, true],
+          [true, true],
+        ],
+      },
     },
-    body: JSON.stringify({
-        window_results: {
-            window_1: {
-                df_matrix: [[1.2, 1.5], [2.0, 2.3]],
-                room_mask: [[true, true], [true, true]]
-            },
-            window_2: {
-                df_matrix: [[0.8, 1.0], [1.5, 1.8]],
-                room_mask: [[true, true], [true, true]]
-            }
-        }
-    })
+  }),
 })
-.then(res => res.json())
-.then(data => console.log('Merged successfully'));
+  .then((res) => res.json())
+  .then((data) => console.log('Merged successfully'));
 ```
 
 </TabItem>
@@ -1476,19 +1589,20 @@ All endpoints return errors in JSON format:
 
 **HTTP Status Codes**
 
-| Code | Description |
-|------|-------------|
-| 200 | Success |
-| 400 | Invalid parameters |
-| 401 | Invalid or missing API token |
-| 403 | Forbidden |
-| 500 | Internal server error |
-| 503 | Service unavailable |
-| 504 | Request timeout |
+| Code | Description                  |
+| ---- | ---------------------------- |
+| 200  | Success                      |
+| 400  | Invalid parameters           |
+| 401  | Invalid or missing API token |
+| 403  | Forbidden                    |
+| 500  | Internal server error        |
+| 503  | Service unavailable          |
+| 504  | Request timeout              |
 
 **Common Errors**
 
 Missing required field:
+
 ```json
 {
   "error": "Missing required parameters: window_frame_ratio"
@@ -1496,6 +1610,7 @@ Missing required field:
 ```
 
 Out of range value:
+
 ```json
 {
   "error": "Parameter 'height_roof_over_floor' value 35.0 outside valid range [0, 30]"
@@ -1503,6 +1618,7 @@ Out of range value:
 ```
 
 Invalid mesh:
+
 ```json
 {
   "error": "Mesh must contain at least 3 points"

@@ -15,13 +15,13 @@ Check that:
 
 <img src="https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/room-properties.png" alt="Room Properties panel" width="330" />
 
-| Field | Meaning |
-|---|---|
-| Name | IfcSpace name or number |
-| Room Height | Floor to ceiling |
-| Roof over Floor | Floor to the roof above (top-floor rooms) |
-| Floor over Terrain | Height of the floor above ground level * |
-| Floor Area | Area of the room floor polygon |
+| Field                 | Meaning                                                                                            |
+| --------------------- | -------------------------------------------------------------------------------------------------- |
+| Name                  | IfcSpace name or number                                                                            |
+| Room Height           | Floor to ceiling                                                                                   |
+| Roof over Floor       | Floor to the roof above (top-floor rooms)                                                          |
+| Floor over Terrain    | Height of the floor above ground level *                                                           |
+| Floor Area            | Area of the room floor polygon                                                                     |
 | Window-to-Floor Ratio | Combined 2D area of the room's window openings (glazed and opaque parts) divided by the floor area |
 
 \* Ground level is set automatically to the lowest IfcSpace loaded in the model and is shown as the ground grid in the 3D view.
@@ -32,10 +32,10 @@ The **Windows** section lists every window found in the room. Use the dropdown t
 
 ![Room Properties window panel](https://upskiller-website.s3.fr-par.scw.cloud/docs.ifc/room-properties-window.png)
 
-| Field | Meaning |
-|---|---|
-| Height / Sill Height | Window height, and height of its base above the floor |
-| Opening Area | Total 2D area of the window opening (glazed and opaque parts) |
-| Frame Ratio | Share of the opening taken up by the frame; the rest is treated as glass |
+| Field                | Meaning                                                                  |
+| -------------------- | ------------------------------------------------------------------------ |
+| Height / Sill Height | Window height, and height of its base above the floor                    |
+| Opening Area         | Total 2D area of the window opening (glazed and opaque parts)            |
+| Frame Ratio          | Share of the opening taken up by the frame; the rest is treated as glass |
 
 **Show obstruction (3D)** draws what blocks the sky from that window. The **Fisheye** view is a hemispherical projection: light areas are visible sky, dark areas are obstructions (balconies, overhangs, context buildings). The **Sky obstruction** bar summarises how much sky is blocked from the horizon up to the zenith.

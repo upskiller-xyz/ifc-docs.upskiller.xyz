@@ -31,29 +31,29 @@ Both DA modes are **in experimental development and not yet available in any LUX
 
 ## Parameter Usage by Mode
 
-| Parameter                                                             | DF Default | DF Custom | DA Default | DA Custom |
-| --------------------------------------------------------------------- | ---------- | --------- | ---------- | --------- |
-| **Room Geometry**                                                     |
-| [Room boundary](/docs/ifc-daylight-factor/methodology/parameters#room-geometry)              | ✓          | ✓         | ✓          | ✓         |
-| [Ceiling height](/docs/ifc-daylight-factor/methodology/parameters#room-geometry)             | ✓          | ✓         | ✓          | ✓         |
-| [Floor height above terrain](/docs/ifc-daylight-factor/methodology/parameters#room-geometry) | ✓          | ✓         | ✓          | ✓         |
-| **Window Properties**                                                 |
-| [Window position](/docs/ifc-daylight-factor/methodology/parameters#window-geometry)          | ✓          | ✓         | ✓          | ✓         |
-| [Window sill height](/docs/ifc-daylight-factor/methodology/parameters#window-geometry)       | ✓          | ✓         | ✓          | ✓         |
-| [Window frame ratio](/docs/ifc-daylight-factor/methodology/parameters#window-geometry)       | ✓          | ✓         | ✓          | ✓         |
-| [Window orientation](/docs/ifc-daylight-factor/methodology/parameters#daylight-autonomy)     | ✗ (288°)   | ✗ (288°)  | ✓          | ✓         |
-| **Context & Obstructions**                                            |
-| [Horizon angle](/docs/ifc-daylight-factor/methodology/parameters#context-obstruction)        | ✓          | ✓         | ✓          | ✓         |
-| [Zenith angle](/docs/ifc-daylight-factor/methodology/parameters#context-obstruction)         | ✓          | ✓         | ✓          | ✓         |
-| **Material Reflectances**                                             |
-| [Wall reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)             | ✗ (0.70)   | ✓         | ✗ (0.70)   | ✓         |
-| [Floor reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)            | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
-| [Ceiling reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.80)   | ✓         | ✗ (0.80)   | ✓         |
-| [Facade reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)           | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
-| [Terrain reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.20)   | ✓         | ✗ (0.20)   | ✓         |
-| [Window frame reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)     | ✗ (0.50)   | ✓         | ✗ (0.50)   | ✓         |
-| [Context reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
-| [Balcony reflectance](/docs/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.70)   | ✓         | ✗ (0.70)   | ✓         |
+| Parameter                                                                               | DF Default | DF Custom | DA Default | DA Custom |
+| --------------------------------------------------------------------------------------- | ---------- | --------- | ---------- | --------- |
+| **Room Geometry**                                                                       |
+| [Room boundary](/ifc-daylight-factor/methodology/parameters#room-geometry)              | ✓          | ✓         | ✓          | ✓         |
+| [Ceiling height](/ifc-daylight-factor/methodology/parameters#room-geometry)             | ✓          | ✓         | ✓          | ✓         |
+| [Floor height above terrain](/ifc-daylight-factor/methodology/parameters#room-geometry) | ✓          | ✓         | ✓          | ✓         |
+| **Window Properties**                                                                   |
+| [Window position](/ifc-daylight-factor/methodology/parameters#window-geometry)          | ✓          | ✓         | ✓          | ✓         |
+| [Window sill height](/ifc-daylight-factor/methodology/parameters#window-geometry)       | ✓          | ✓         | ✓          | ✓         |
+| [Window frame ratio](/ifc-daylight-factor/methodology/parameters#window-geometry)       | ✓          | ✓         | ✓          | ✓         |
+| [Window orientation](/ifc-daylight-factor/methodology/parameters#daylight-autonomy)     | ✗ (288°)   | ✗ (288°)  | ✓          | ✓         |
+| **Context & Obstructions**                                                              |
+| [Horizon angle](/ifc-daylight-factor/methodology/parameters#context-obstruction)        | ✓          | ✓         | ✓          | ✓         |
+| [Zenith angle](/ifc-daylight-factor/methodology/parameters#context-obstruction)         | ✓          | ✓         | ✓          | ✓         |
+| **Material Reflectances**                                                               |
+| [Wall reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)             | ✗ (0.70)   | ✓         | ✗ (0.70)   | ✓         |
+| [Floor reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)            | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
+| [Ceiling reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.80)   | ✓         | ✗ (0.80)   | ✓         |
+| [Facade reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)           | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
+| [Terrain reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.20)   | ✓         | ✗ (0.20)   | ✓         |
+| [Window frame reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)     | ✗ (0.50)   | ✓         | ✗ (0.50)   | ✓         |
+| [Context reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.30)   | ✓         | ✗ (0.30)   | ✓         |
+| [Balcony reflectance](/ifc-daylight-factor/methodology/parameters#reflectance)          | ✗ (0.70)   | ✓         | ✗ (0.70)   | ✓         |
 
 **Legend:** ✓ Required | ✗ Not used
 

@@ -6,10 +6,9 @@ sidebar_position: 1
 
 LUX is a project that anyone can contribute to. We believe in open discussions, constructive criticism and new ideas. If you see something that can be improved, [open an issue](https://github.com/upskiller-xyz/server_lux/issues/new) or [edit the docs](https://github.com/upskiller-xyz/docs.upskiller.xyz/issues/new).
 
-A good way to start is searching for _good first issue_ tags. When you find one you feel ready to work on, create a separate branch and make a pull request to the _master_ when you are done. 
+A good way to start is searching for _good first issue_ tags. When you find one you feel ready to work on, create a separate branch and make a pull request to the _master_ when you are done.
 
 If you feel uncertain about anything, start a discussion under the relevant issue or [contact us](mailto:alejandro.pacheco@upskiller.xyz) directly.
-
 
 ## What you need to know
 
@@ -35,12 +34,11 @@ These containers are not directly accessible via API; instead, they are connecte
 
 The _interface server_ can be connected to different user interfaces via the same API requests. The idea with the user interfaces is to keep them as light as possible, keeping all the operations on the server side (as much as possible).
 
-
 ## Contributing Guidelines
 
-Follow existing code style. We hold ourselves to [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) with elements of [FP](https://en.wikipedia.org/wiki/Functional_programming) and fancy [software design patterns](https://refactoring.guru/design-patterns). 
+Follow existing code style. We hold ourselves to [OOP](https://en.wikipedia.org/wiki/Object-oriented_programming) with elements of [FP](https://en.wikipedia.org/wiki/Functional_programming) and fancy [software design patterns](https://refactoring.guru/design-patterns).
 
-Make sure your development starts with [one of the templates](/docs/contributing/templates) if you are starting a new repo. Any project or feature starts with unit tests. 
+Make sure your development starts with [one of the templates](/contributing/templates) if you are starting a new repo. Any project or feature starts with unit tests.
 
 Make sure you don't forget to comment your thinking process both in the code and in the related issues and PR discussions. No one can read minds! :) And, of course, every new development should be reflected in the [documentation](https://github.com/upskiller-xyz/docs.upskiller.xyz).
 
