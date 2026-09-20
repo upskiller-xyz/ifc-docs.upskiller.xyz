@@ -1,6 +1,5 @@
 # Dependencies
 /node_modules
-DEPLOYMENT.md
 # Production
 /build
 .claude
@@ -23,6 +22,8 @@ settings.local.json
 
 # Local working notes — never committed
 /TODO.md
+# Scaleway provisioning walkthrough — kept out of the repo on purpose
+DEPLOYMENT.md
 
 # Misc
 .DS_Store

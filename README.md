@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/upskiller-xyz/ifc-docs.upskiller.xyz">
-    <img src="https://github.com/upskiller-xyz/DaylightFactor/blob/main/docs/images/logo_upskiller.png" alt="Logo" height="100" >
+    <img src="https://raw.githubusercontent.com/upskiller-xyz/DaylightFactor/main/docs/images/logo_upskiller.png" alt="Logo" height="100" >
   </a>
 
   <h3 align="center">IFC Daylight Factor — Documentation</h3>
@@ -185,13 +185,13 @@ The production image builds the Docusaurus site and serves the static output wit
 2. **Build the Image**
 
    ```bash
-   docker build -t ifc-docs .
+   docker build -t lux-web-docs .
    ```
 
 3. **Run the Container**
 
    ```bash
-   docker run -p 8080:8080 ifc-docs
+   docker run -p 8080:8080 lux-web-docs
    ```
 
 4. **Open the Docs**
@@ -205,9 +205,23 @@ The Dockerfile runs `npm run build` (which fails on any broken internal link) an
 
 #### Production Deployment (Scaleway Serverless Containers)
 
-Every push to `master` builds the image, pushes it to the Scaleway Container Registry and points the Serverless Container at the new tag — see [`.github/workflows/deploy-scaleway.yml`](.github/workflows/deploy-scaleway.yml).
+Every push to `master` builds the image, pushes it to the Scaleway Container Registry and points the Serverless Container at the new tag — see [`.github/workflows/deploy-scaleway.yml`](.github/workflows/deploy-scaleway.yml). The workflow only swaps the image; the container `lux-web-docs-container` (`fr-par`, port 8080) and the `dfifc-docs.upskiller.xyz` domain are provisioned once, out of band.
 
-The one-time Scaleway setup (registry, container, IAM key, GitHub secrets) and the steps for attaching `dfifc-docs.upskiller.xyz` are written up in [DEPLOYMENT.md](./DEPLOYMENT.md).
+For that to work, the repository needs these Actions **secrets**:
+
+| Secret                        | Purpose                                             |
+| ----------------------------- | --------------------------------------------------- |
+| `SCW_ACCESS_KEY`              | Scaleway API key for the CI application             |
+| `SCW_SECRET_KEY`              | Same key — also used as the registry login password |
+| `SCW_DEFAULT_ORGANIZATION_ID` | Scaleway organization                               |
+| `SCW_DEFAULT_PROJECT_ID`      | Scaleway project                                    |
+| `SCW_CONTAINER_ID`            | The Serverless Container to redeploy                |
+
+and one **variable**:
+
+| Variable       | Example                       |
+| -------------- | ----------------------------- |
+| `SCW_REGISTRY` | `rg.fr-par.scw.cloud/lux-web` |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

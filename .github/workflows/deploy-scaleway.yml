@@ -21,7 +21,7 @@ env:
   # Used for image tags. The bare host (rg.fr-par.scw.cloud) is derived from it
   # for docker login — see the meta step.
   REGISTRY: ${{ vars.SCW_REGISTRY }}
-  IMAGE_NAME: ifc-docs
+  IMAGE_NAME: lux-web-docs
 
 jobs:
   deploy:
@@ -64,7 +64,8 @@ jobs:
 
       # Point the existing Serverless Container at the new image tag and
       # redeploy it. The container itself (scaling, memory, domain) is
-      # provisioned once out-of-band — see DEPLOYMENT.md. CI only swaps the image.
+      # provisioned once out-of-band — CI only swaps the image. The secrets and
+      # variables this needs are listed in the README's Deployment section.
       - name: Install Scaleway CLI
         uses: scaleway/action-scw@v0
         with:

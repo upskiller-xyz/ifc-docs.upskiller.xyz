@@ -1,5 +1,5 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
@@ -14,10 +14,10 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // The tool and these docs share one domain: the web tool is served at the
-  // root, the docs under /docs/ (routing handled by the deployment).
-  url: 'https://dfifc.upskiller.xyz',
-  baseUrl: '/docs/',
+  // The docs have their own hostname, separate from the tool
+  // (https://dfifc.upskiller.xyz) — so they are served from the root.
+  url: 'https://dfifc-docs.upskiller.xyz',
+  baseUrl: '/',
 
   organizationName: 'upskiller-xyz',
   projectName: 'ifc-docs.upskiller.xyz',
@@ -68,7 +68,7 @@ const config: Config = {
     },
     footer: {
       style: 'dark',
-      copyright: `<a href="/docs/ifc-terms">Terms of Use</a> · <a href="/docs/ifc-privacy">Privacy Policy</a> · Copyright © ${new Date().getFullYear()} <a href="https://upskiller.xyz" target="_blank">BIMTech Innovations AB</a>.`,
+      copyright: `<a href="/ifc-terms">Terms of Use</a> · <a href="/ifc-privacy">Privacy Policy</a> · Copyright © ${new Date().getFullYear()} <a href="https://upskiller.xyz" target="_blank">BIMTech Innovations AB</a>.`,
     },
     prism: {
       theme: prismThemes.github,
