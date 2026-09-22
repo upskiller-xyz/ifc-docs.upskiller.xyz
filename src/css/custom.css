@@ -158,11 +158,12 @@ html[data-theme='dark'] body::before {
 }
 
 /* Navbar CTA button: "Download LUX" */
+/* Buttons: sharp 2px corners per brand */
 .navbar-cta-button {
   background-color: #00ff66;
   color: #180057 !important;
   padding: 0.5rem 1rem;
-  border-radius: 0;
+  border-radius: 2px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -180,6 +181,7 @@ html[data-theme='dark'] body::before {
   background-color: #00ff66;
   color: #180057;
   padding: 0.75rem 1.5rem;
+  border-radius: 2px;
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
@@ -265,7 +267,7 @@ b {
 .pagination-nav__link {
   background-color: #00d67a;
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
   color: #180057;
 }
 
@@ -296,18 +298,16 @@ b {
   border-radius: 0;
 }
 
-/* Collapsible details/summary sections */
+/* Collapsible details/summary sections: frosted glass, matching the
+   translucent table surfaces in both themes */
 details.alert {
-  --docusaurus-details-decoration-color: #f4fffa;
-  background-color: #4e378a;
-  color: #f4fffa;
-  border: none;
-  border-radius: 0;
+  --docusaurus-details-decoration-color: currentColor;
+  background-color: var(--ifm-table-stripe-background);
+  color: inherit;
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: 2px;
   box-shadow: none;
-}
-
-details.alert summary {
-  color: #f4fffa;
+  backdrop-filter: blur(8px);
 }
 
 /* Dark mode code blocks: deepest purple background, sharp corners */
