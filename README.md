@@ -336,7 +336,7 @@ Contact: [Upskiller](mailto:info@upskiller.xyz)
 
 ## Contact
 
-Stanislava Fedorova - [e-mail](mailto:stasya.fedorova@gmail.com)
+Upskiller - [e-mail](mailto:info@upskiller.xyz)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
