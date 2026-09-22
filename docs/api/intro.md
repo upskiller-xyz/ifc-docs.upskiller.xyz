@@ -52,37 +52,50 @@ if response.status_code == 200:
 ```javascript
 const fetch = require('node-fetch');
 
-const url = "https://api-lux.upskiller.xyz/v2/run";
+const url = 'https://api-lux.upskiller.xyz/v2/run';
 const payload = {
-    model_type: "df_default",
-    parameters: {
-        height_roof_over_floor: 2.7,
-        floor_height_above_terrain: 3.0,
-        room_polygon: [[0, 0], [5, 0], [5, 4], [0, 4]],
-        windows: {
-            main_window: {
-                x1: -0.6, y1: 0.0, z1: 0.9,
-                x2: 0.6, y2: 0.0, z2: 2.4,
-                window_frame_ratio: 0.15
-            }
-        }
+  model_type: 'df_default',
+  parameters: {
+    height_roof_over_floor: 2.7,
+    floor_height_above_terrain: 3.0,
+    room_polygon: [
+      [0, 0],
+      [5, 0],
+      [5, 4],
+      [0, 4],
+    ],
+    windows: {
+      main_window: {
+        x1: -0.6,
+        y1: 0.0,
+        z1: 0.9,
+        x2: 0.6,
+        y2: 0.0,
+        z2: 2.4,
+        window_frame_ratio: 0.15,
+      },
     },
-    mesh: [
-        [10, 0, 0], [10, 0, 8], [10, 20, 8],
-        [10, 20, 8], [10, 20, 0], [10, 0, 0]
-    ]
+  },
+  mesh: [
+    [10, 0, 0],
+    [10, 0, 8],
+    [10, 20, 8],
+    [10, 20, 8],
+    [10, 20, 0],
+    [10, 0, 0],
+  ],
 };
 
 fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer YOUR_API_TOKEN'
-    },
-    body: JSON.stringify(payload)
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    Authorization: 'Bearer YOUR_API_TOKEN',
+  },
+  body: JSON.stringify(payload),
 })
-.then(response => response.json())
-.then(data => console.log(`Status: ${data.status}`));
+  .then((response) => response.json())
+  .then((data) => console.log(`Status: ${data.status}`));
 ```
 
 </TabItem>
@@ -157,8 +170,6 @@ curl -X POST https://api-lux.upskiller.xyz/v2/run \
 
 </TabItem>
 </Tabs>
-
-
 
 ## Next Steps
 

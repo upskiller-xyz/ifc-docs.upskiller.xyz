@@ -1,0 +1,3 @@
+# Cheap gates only — the full production build runs in CI.
+npm run typecheck
+npm test

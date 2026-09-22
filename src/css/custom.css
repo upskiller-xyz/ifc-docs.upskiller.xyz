@@ -158,11 +158,12 @@ html[data-theme='dark'] body::before {
 }
 
 /* Navbar CTA button: "Download LUX" */
+/* Buttons: sharp 2px corners per brand */
 .navbar-cta-button {
   background-color: #00ff66;
   color: #180057 !important;
   padding: 0.5rem 1rem;
-  border-radius: 0;
+  border-radius: 2px;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
@@ -180,6 +181,7 @@ html[data-theme='dark'] body::before {
   background-color: #00ff66;
   color: #180057;
   padding: 0.75rem 1.5rem;
+  border-radius: 2px;
   font-weight: 700;
   text-decoration: none;
   display: inline-flex;
@@ -216,15 +218,22 @@ html[data-theme='dark'] body::before {
 }
 
 /* Typography adjustments per brand guidelines */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
 }
 
-p, li {
+p,
+li {
   font-weight: 300;
 }
 
-strong, b {
+strong,
+b {
   font-weight: 700;
 }
 
@@ -241,7 +250,7 @@ strong, b {
 }
 
 /* Lux illustration sizing */
-.markdown img[src*="heatmap_in_3d.png"] {
+.markdown img[src*='heatmap_in_3d.png'] {
   max-height: 30vh;
   width: auto;
   display: block;
@@ -249,7 +258,7 @@ strong, b {
 }
 
 @media (max-width: 768px) {
-  .markdown img[src*="heatmap_in_3d.png"] {
+  .markdown img[src*='heatmap_in_3d.png'] {
     max-height: 60vh;
   }
 }
@@ -258,7 +267,7 @@ strong, b {
 .pagination-nav__link {
   background-color: #00d67a;
   border: none;
-  border-radius: 0;
+  border-radius: 2px;
   color: #180057;
 }
 
@@ -289,18 +298,16 @@ strong, b {
   border-radius: 0;
 }
 
-/* Collapsible details/summary sections */
+/* Collapsible details/summary sections: frosted glass, matching the
+   translucent table surfaces in both themes */
 details.alert {
-  --docusaurus-details-decoration-color: #f4fffa;
-  background-color: #4e378a;
-  color: #f4fffa;
-  border: none;
-  border-radius: 0;
+  --docusaurus-details-decoration-color: currentColor;
+  background-color: var(--ifm-table-stripe-background);
+  color: inherit;
+  border: 1px solid var(--ifm-table-border-color);
+  border-radius: 2px;
   box-shadow: none;
-}
-
-details.alert summary {
-  color: #f4fffa;
+  backdrop-filter: blur(8px);
 }
 
 /* Dark mode code blocks: deepest purple background, sharp corners */
@@ -356,16 +363,12 @@ details.alert summary {
 }
 
 /* Level-1 category title turns green when any descendant page is active */
-.theme-doc-sidebar-item-category-level-1:has(.menu__link--active)
-  > .menu__list-item-collapsible
-  > .menu__link {
+.theme-doc-sidebar-item-category-level-1:has(.menu__link--active) > .menu__list-item-collapsible > .menu__link {
   color: var(--ifm-color-primary);
 }
 
 /* Level-1 category title turns green when its own linked page is active */
-.theme-doc-sidebar-item-category-level-1
-  > .menu__list-item-collapsible--active
-  > .menu__link {
+.theme-doc-sidebar-item-category-level-1 > .menu__list-item-collapsible--active > .menu__link {
   color: var(--ifm-color-primary);
 }
 
@@ -459,7 +462,7 @@ details.alert summary {
 
   /* Hide the home icon on mobile; the hamburger sits in its place.
      The hamburger li is first; the home li follows. */
-  nav.theme-doc-breadcrumbs .breadcrumbs > .breadcrumbs__item:nth-child(2):has(a[aria-label*="Home"]) {
+  nav.theme-doc-breadcrumbs .breadcrumbs > .breadcrumbs__item:nth-child(2):has(a[aria-label*='Home']) {
     display: none;
   }
 

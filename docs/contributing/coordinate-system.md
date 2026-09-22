@@ -47,13 +47,11 @@ The obstruction calculation API uses a simplified single horizontal rotation ang
 **Direction Mapping**:
 
 | Angle (rad) | Angle (°) | Direction | Compass |
-|-------------|-----------|-----------|---------|
+| ----------- | --------- | --------- | ------- |
 | 0           | 0         | +X        | East    |
 | π/2         | 90        | +Y        | North   |
 | π           | 180       | -X        | West    |
 | 3π/2        | 270       | -Y        | South   |
-
-
 
 ### Python Example
 
@@ -78,6 +76,3 @@ request["direction_angle"] = np.pi
 # Facing south (-Y direction)
 request["direction_angle"] = 3 * np.pi / 2
 ```
-
-
-

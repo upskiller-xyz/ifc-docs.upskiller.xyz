@@ -1,0 +1,12 @@
+node_modules
+build
+.docusaurus
+.git
+.github
+.husky
+coverage
+tests
+.env
+*.md
+!docs/**/*.md
+!src/pages/*.md

@@ -10,8 +10,6 @@ All requests to the hosted LUX API require authentication using an API token.
 
 Join the [beta program](https://docs.google.com/forms/d/19p6IUGgH7YBV7W9smQDx1ISpL2WiRiKaHgJDGndTj1M) to request access and obtain your API token.
 
-
-
 ## Passing Authorization in Requests
 
 Authentication is supplied as a standard `Authorization` HTTP header using the Bearer scheme:

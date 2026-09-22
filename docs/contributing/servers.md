@@ -23,6 +23,7 @@ Tests hypotheses about system performance and user experience. Repository: [serv
 Accepts file uploads via multipart/form-data. Tracks upload time and file size metrics. Returns JSON with timing data.
 
 **Response**:
+
 ```json
 {
   "filename": "example.txt",

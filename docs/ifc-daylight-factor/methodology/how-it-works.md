@@ -32,11 +32,11 @@ Each window is encoded as a stack of image channels describing:
 - the **window geometry** (position, sill and head height, frame ratio);
 - the **external obstruction** — two angle profiles (horizon and zenith) sampled
   in 64 directions across a 145° field of view. See
-  [Obstruction encoding](/docs/ifc-daylight-factor/methodology/obstruction-encoding).
+  [Obstruction encoding](/ifc-daylight-factor/methodology/obstruction-encoding).
 
 Material reflectances are fixed to the default set in the validated model — see
 [Reflectance](https://docs.upskiller.xyz/docs/regulations/other/optical-properties/reflectance) and
-[Parameters](/docs/ifc-daylight-factor/methodology/parameters) for the full list.
+[Parameters](/ifc-daylight-factor/methodology/parameters) for the full list.
 
 ## Training data
 

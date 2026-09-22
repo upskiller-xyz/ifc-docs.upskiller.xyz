@@ -50,7 +50,7 @@ a directional context.
 "zenith": 45
 ```
 
-<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> See [Obstruction encoding](/docs/ifc-daylight-factor/methodology/obstruction-encoding) for the
+<svg viewBox="0 0 24 24" style={{height: '1em', width: '1em', fill: 'none', stroke: 'currentColor', strokeWidth: '2', strokeLinecap: 'round', strokeLinejoin: 'round', verticalAlign: '-0.125em', marginRight: '0.4em'}}><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg> See [Obstruction encoding](/ifc-daylight-factor/methodology/obstruction-encoding) for the
 angle definitions, direction sampling and calculation method.
 
 ## Reflectance

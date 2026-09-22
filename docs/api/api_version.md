@@ -15,27 +15,30 @@ https://api-lux.upskiller.xyz/v{MAJOR}
 **v1** - Current stable version
 
 All endpoints are accessed via:
+
 ```
 https://api-lux.upskiller.xyz/v2/{endpoint}
 ```
 
 ## Version History
 
-| Version | Status | Release Date | Deprecation Date |
-|---------|--------|--------------|------------------|
-| v1 | Internal | To be announced | - |
+| Version | Status   | Release Date    | Deprecation Date |
+| ------- | -------- | --------------- | ---------------- |
+| v1      | Internal | To be announced | -                |
 
 ## Semantic Versioning
 
 The API follows [semantic versioning](https://semver.org/) principles:
 
 **Major version** (v1 → v2): Breaking changes
+
 - Removal of documented endpoints
 - Changes to required parameters
 - Changes to response format or structure
 - Changes to authentication method
 
 **Minor changes**: Non-breaking improvements (not reflected in URL)
+
 - Addition of new optional parameters
 - Addition of new endpoints
 - Addition of new fields in responses
@@ -73,6 +76,7 @@ curl https://api-lux.upskiller.xyz/v2/
 ```
 
 Response:
+
 ```json
 {
   "status": "ok",

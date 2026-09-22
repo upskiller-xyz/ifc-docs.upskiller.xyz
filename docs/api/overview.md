@@ -103,23 +103,23 @@ curl -X POST https://api-lux.upskiller.xyz/v2/run \
 
 ## Available Endpoints
 
-| Method | HTTP Request | Description |
-|--------|--------------|-------------|
-| run | POST /run | Converts room geometry into encoded images for daylight prediction |
-| horizon | POST /horizon | Calculates horizon obstruction angle from window position |
-| zenith | POST /zenith | Calculates zenith obstruction angle from window position |
-| obstruction | POST /obstruction | Calculates both horizon and zenith obstruction angles |
+| Method      | HTTP Request      | Description                                                        |
+| ----------- | ----------------- | ------------------------------------------------------------------ |
+| run         | POST /run         | Converts room geometry into encoded images for daylight prediction |
+| horizon     | POST /horizon     | Calculates horizon obstruction angle from window position          |
+| zenith      | POST /zenith      | Calculates zenith obstruction angle from window position           |
+| obstruction | POST /obstruction | Calculates both horizon and zenith obstruction angles              |
 
 ## Simulation Modes
 
 Choose a model type based on your analysis needs:
 
-| Model Type | Analysis | Materials |
-|------------|----------|-----------|
-| `df_default` | Daylight Factor | Fixed per-surface reflectances |
+| Model Type   | Analysis          | Materials                      |
+| ------------ | ----------------- | ------------------------------ |
+| `df_default` | Daylight Factor   | Fixed per-surface reflectances |
 | `da_default` | Daylight Autonomy | Fixed per-surface reflectances |
-| `df_custom` | Daylight Factor | Custom material reflectances |
-| `da_custom` | Daylight Autonomy | Custom material reflectances |
+| `df_custom`  | Daylight Factor   | Custom material reflectances   |
+| `da_custom`  | Daylight Autonomy | Custom material reflectances   |
 
 ## Response Format
 
@@ -137,8 +137,8 @@ Hosted API has no enforced rate limits currently. Subject to change as service s
 
 [API Reference](./api-reference) - Complete endpoint documentation
 
-[Required Parameters](/docs/ifc-daylight-factor/methodology/parameters) - Parameter specifications
+[Required Parameters](/ifc-daylight-factor/methodology/parameters) - Parameter specifications
 
-[Simulation Modes](/docs/ifc-daylight-factor/methodology/simulation-modes) - Detailed mode explanations
+[Simulation Modes](/ifc-daylight-factor/methodology/simulation-modes) - Detailed mode explanations
 
 [Local Deployment](../contributing/servers) - Self-hosting instructions

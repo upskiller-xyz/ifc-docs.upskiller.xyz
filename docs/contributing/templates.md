@@ -10,11 +10,10 @@ Project templates provide standardized starting points for new LUX components an
 
 ## Available Templates
 
-* [Server Template](https://github.com/upskiller-xyz/server_template)
+- [Server Template](https://github.com/upskiller-xyz/server_template)
 
 _Template for building LUX microservices and backend components_
 
-* [Frontend Template](https://github.com/upskiller-xyz/template.upskiller.xyz)
+- [Frontend Template](https://github.com/upskiller-xyz/template.upskiller.xyz)
 
 _Template for building LUX web applications and user interfaces_
-

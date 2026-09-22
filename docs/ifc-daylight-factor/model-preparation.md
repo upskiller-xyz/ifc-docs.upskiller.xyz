@@ -12,14 +12,14 @@ Include only elements that define the building envelope and room geometry. Exclu
 
 **Include:**
 
-| IFC type | Description |
-|---|---|
-| IfcSpace | Room volumes — required for room detection |
-| IfcWall / IfcWallStandardCase | Walls |
-| IfcWindow | Windows |
-| IfcSlab | Floor and roof slabs |
-| IfcRoof | Roof elements |
-| IfcPlate | Balcony slabs, overhangs, horizontal elements |
+| IFC type                      | Description                                   |
+| ----------------------------- | --------------------------------------------- |
+| IfcSpace                      | Room volumes — required for room detection    |
+| IfcWall / IfcWallStandardCase | Walls                                         |
+| IfcWindow                     | Windows                                       |
+| IfcSlab                       | Floor and roof slabs                          |
+| IfcRoof                       | Roof elements                                 |
+| IfcPlate                      | Balcony slabs, overhangs, horizontal elements |
 
 **Exclude:** furniture, MEP/HVAC, stairs, railings, annotations, and detailed interior fittings. If it does not affect room shape or how much sky a window can see, leave it out.
 
@@ -33,9 +33,9 @@ Model context as **masses (generic volumetry)**, not detailed BIM. Simple blocks
 
 ## Recommended File Sizes
 
-| Model type | Max recommended size |
-|---|---|
-| Main building IFC | < 10 MB |
-| Surrounding buildings IFC | < 2 MB each |
+| Model type                | Max recommended size |
+| ------------------------- | -------------------- |
+| Main building IFC         | < 10 MB              |
+| Surrounding buildings IFC | < 2 MB each          |
 
 Keeping files within these limits ensures the tool runs smoothly in the browser. For larger or more complex models, contact [upskiller](https://upskiller.xyz) about the advanced [LUX Live](https://docs.upskiller.xyz/docs/lux-live/intro) Revit plugin.

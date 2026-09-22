@@ -1,33 +1,29 @@
-# Multi-stage build for IFC Daylight Factor Documentation
+# Multi-stage build for the IFC Daylight Factor documentation site.
 
 # Stage 1: Build
-FROM node:21-alpine AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
-# Copy package files
+# Dependencies first so the layer is cached when only content changes.
 COPY package*.json ./
-
-# Install dependencies
 RUN npm ci
-    
-# Copy source code
+
 COPY . .
 
-# Build the static site
+# Static output in /app/build.
 RUN npm run build
 
 # Stage 2: Production
 FROM nginx:alpine
 
-# Copy built static files from builder
+# The docs have their own hostname (baseUrl '/'), so the build is the web root.
 COPY --from=builder /app/build /usr/share/nginx/html
 
-# Copy custom nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 8080 (Cloud Run default)
+# Scaleway Serverless Containers route to the port declared on the container;
+# 8080 is the convention across our images.
 EXPOSE 8080
 
-# Start nginx
 CMD ["nginx", "-g", "daemon off;"]

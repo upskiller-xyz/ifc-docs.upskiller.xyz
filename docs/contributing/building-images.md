@@ -220,6 +220,7 @@ CMD ["python", "server.py"]
 ### Minimize Layers
 
 Combine RUN commands:
+
 ```dockerfile
 RUN apt-get update && \
     apt-get install -y build-essential && \
@@ -230,6 +231,7 @@ RUN apt-get update && \
 ### Use .dockerignore
 
 Create `.dockerignore`:
+
 ```
 __pycache__/
 *.pyc
@@ -278,6 +280,7 @@ services:
 ```
 
 Run:
+
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 ```
@@ -324,6 +327,7 @@ jobs:
 ### Build fails with memory error
 
 Increase Docker memory:
+
 ```bash
 # Docker Desktop: Settings → Resources → Memory → 8GB
 ```
@@ -331,11 +335,13 @@ Increase Docker memory:
 ### Slow builds
 
 Enable BuildKit:
+
 ```bash
 export DOCKER_BUILDKIT=1
 ```
 
 Use build cache:
+
 ```bash
 docker build --cache-from daylight-encoder:latest -t daylight-encoder:new .
 ```
@@ -359,16 +365,19 @@ COPY . .
 ### Image too large
 
 Check layer sizes:
+
 ```bash
 docker history daylight-encoder:local
 ```
 
 Use slim base image:
+
 ```dockerfile
 FROM python:3.11-slim  # ~150MB vs python:3.11 ~900MB
 ```
 
 Remove build dependencies:
+
 ```dockerfile
 RUN apt-get update && \
     apt-get install -y build-essential && \
@@ -413,6 +422,6 @@ docker build -t daylight-encoder:$GIT_TAG services/encoder/
 
 ## Next Steps
 
-[Docker Setup](/docs/api/docker-setup) - Run images locally
+[Docker Setup](/api/docker-setup) - Run images locally
 
-[Deployment Guide](/docs/contributing/servers) - Production deployment
+[Deployment Guide](/contributing/servers) - Production deployment

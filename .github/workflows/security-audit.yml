@@ -1,0 +1,38 @@
+# Supply-chain check: fail the build on known-vulnerable dependencies, and
+# re-scan weekly so a newly-disclosed CVE in an unchanged lockfile is caught.
+name: security-audit
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  schedule:
+    - cron: '0 6 * * 1' # Mondays 06:00 UTC
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      # GATE: critical advisories only. npm counts @docusaurus/core as a
+      # production dependency, but for a docs site the whole tree is build
+      # tooling — webpack, babel, svgo, the dev server — and none of it reaches
+      # a visitor, who only ever loads the static output. Gating on `high` here
+      # means a permanently red pipeline: a blanket `npm audit fix` pulls webpack
+      # past 5.102, which webpackbar 6 (pinned by @docusaurus/bundler) rejects,
+      # and the remaining advisories then only "fix" by downgrading Docusaurus.
+      # So the bar is critical, and the criticals that did exist (shell-quote,
+      # websocket-driver) are pinned out via `overrides` in package.json.
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=critical
+      # VISIBILITY: everything else — high and below, dev tooling included.
+      # Non-blocking, but printed in full so the weekly run surfaces what is
+      # outstanding and what has become fixable.
+      - name: Audit all dependencies (informational)
+        run: npm audit
+        continue-on-error: true

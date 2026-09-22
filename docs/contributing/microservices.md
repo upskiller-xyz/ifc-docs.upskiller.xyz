@@ -8,14 +8,14 @@ Server LUX orchestrates requests across five specialized microservices. Each ser
 
 ## Service Overview
 
-| Service | Port | Purpose |
-|---------|------|---------|
-| Main Gateway | 8080 | Request orchestration and API endpoints |
-| Obstruction | 8081 | Horizon and zenith angle calculation from 3D mesh |
-| Encoder | 8082 | Room geometry encoding to model input format |
-| Model | 8083 | Daylight factor simulation |
-| Merger | 8084 | Multi-window result combination |
-| Stats | 8085 | Statistical metrics calculation |
+| Service      | Port | Purpose                                           |
+| ------------ | ---- | ------------------------------------------------- |
+| Main Gateway | 8080 | Request orchestration and API endpoints           |
+| Obstruction  | 8081 | Horizon and zenith angle calculation from 3D mesh |
+| Encoder      | 8082 | Room geometry encoding to model input format      |
+| Model        | 8083 | Daylight factor simulation                        |
+| Merger       | 8084 | Multi-window result combination                   |
+| Stats        | 8085 | Statistical metrics calculation                   |
 
 ## Obstruction Service
 
@@ -28,6 +28,7 @@ Calculates horizon and zenith obstruction angles from 3D mesh data.
 Calculate both horizon and zenith angles for all 64 directions.
 
 **Input:**
+
 ```json
 {
   "x": 0.0,
@@ -38,6 +39,7 @@ Calculate both horizon and zenith angles for all 64 directions.
 ```
 
 **Output:**
+
 ```json
 {
   "status": "success",
@@ -51,6 +53,7 @@ Calculate both horizon and zenith angles for all 64 directions.
 Calculate single horizon angle for specific direction.
 
 **Input:**
+
 ```json
 {
   "x": 0.0,
@@ -62,6 +65,7 @@ Calculate single horizon angle for specific direction.
 ```
 
 **Output:**
+
 ```json
 {
   "status": "success",
@@ -84,17 +88,27 @@ Encodes room parameters and obstruction data into model input format.
 Encode room geometry with obstruction angles.
 
 **Input:**
+
 ```json
 {
   "model_type": "df_default",
   "parameters": {
     "height_roof_over_floor": 2.7,
     "floor_height_above_terrain": 0.5,
-    "room_polygon": [[0, 0], [0, 5], [-4, 5], [-4, 0]],
+    "room_polygon": [
+      [0, 0],
+      [0, 5],
+      [-4, 5],
+      [-4, 0]
+    ],
     "windows": {
       "main_window": {
-        "x1": -0.5, "y1": 5, "z1": 0.9,
-        "x2": -2, "y2": 5.2, "z2": 2.4,
+        "x1": -0.5,
+        "y1": 5,
+        "z1": 0.9,
+        "x2": -2,
+        "y2": 5.2,
+        "z2": 2.4,
         "window_frame_ratio": 0.2,
         "horizon": [/* 64 angles */],
         "zenith": [/* 64 angles */]
@@ -119,6 +133,7 @@ Perform daylight factor simulation.
 **Input:** NPZ file (multipart/form-data)
 
 **Output:**
+
 ```json
 {
   "status": "success",
@@ -138,6 +153,7 @@ Merges simulation results from multiple windows.
 Combine multiple window results.
 
 **Input:**
+
 ```json
 {
   "window_results": {
@@ -154,6 +170,7 @@ Combine multiple window results.
 ```
 
 **Output:**
+
 ```json
 {
   "status": "success",
@@ -175,14 +192,22 @@ Calculates statistical metrics for daylight simulation results.
 Calculate statistics for daylight factor data.
 
 **Input:**
+
 ```json
 {
-  "result": [[1.2, 1.5], [2.0, 2.3]],
-  "mask": [[true, true], [true, true]]
+  "result": [
+    [1.2, 1.5],
+    [2.0, 2.3]
+  ],
+  "mask": [
+    [true, true],
+    [true, true]
+  ]
 }
 ```
 
 **Output:**
+
 ```json
 {
   "status": "success",
@@ -201,15 +226,14 @@ Calculate statistics for daylight factor data.
 The `/v2/run` endpoint orchestrates these services in sequence:
 
 **Per window:**
+
 1. Obstruction Service → Calculate angles from mesh
 2. Encoder Service → Encode parameters + angles to NPZ
 3. Model Service → Simulate daylight factor from NPZ
 
-**After all windows:**
-4. Merger Service → Combine all window results
+**After all windows:** 4. Merger Service → Combine all window results
 
-**Optional:**
-5. Stats Service → Calculate metrics from merged result
+**Optional:** 5. Stats Service → Calculate metrics from merged result
 
 ## Data Flow
 
@@ -241,6 +265,7 @@ All services return errors in this format:
 ```
 
 Main Gateway behavior:
+
 - Stops processing if any service fails
 - Returns error details in response
 - Does not retry failed requests
@@ -253,6 +278,7 @@ Configure service endpoints via environment variable:
 - **`DEPLOYMENT_MODE=production`** - Uses configured production endpoints
 
 Service URLs for local deployment:
+
 - `OBSTRUCTION_SERVICE_URL=http://obstruction-service:8081`
 - `ENCODER_SERVICE_URL=http://encoder-service:8082`
 - `MODEL_SERVICE_URL=http://model-service:8083`

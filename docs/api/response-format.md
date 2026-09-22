@@ -25,6 +25,7 @@ JSON object containing simulation results:
 ```
 
 Example response headers:
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -45,6 +46,7 @@ All errors return JSON with an error message:
 ### Common Error Responses
 
 **Missing required field** (400 Bad Request):
+
 ```json
 {
   "error": "Missing required parameters: window_frame_ratio"
@@ -52,6 +54,7 @@ All errors return JSON with an error message:
 ```
 
 **Out of range value** (400 Bad Request):
+
 ```json
 {
   "error": "Parameter 'height_roof_over_floor' value 35.0 outside valid range [0, 30]"
@@ -59,6 +62,7 @@ All errors return JSON with an error message:
 ```
 
 **Invalid authentication** (401 Unauthorized):
+
 ```json
 {
   "error": "Invalid or missing API token"
@@ -66,6 +70,7 @@ All errors return JSON with an error message:
 ```
 
 **Internal error** (500 Internal Server Error):
+
 ```json
 {
   "error": "Simulation failed: unable to process room geometry"
@@ -74,11 +79,11 @@ All errors return JSON with an error message:
 
 ## Status Codes
 
-| Code | Description |
-|------|-------------|
-| 200 | Success - returns simulation results |
-| 400 | Invalid parameters or missing required fields |
-| 401 | Missing or invalid API token |
-| 500 | Internal server error |
-| 503 | Service unavailable |
-| 504 | Request timeout |
+| Code | Description                                   |
+| ---- | --------------------------------------------- |
+| 200  | Success - returns simulation results          |
+| 400  | Invalid parameters or missing required fields |
+| 401  | Missing or invalid API token                  |
+| 500  | Internal server error                         |
+| 503  | Service unavailable                           |
+| 504  | Request timeout                               |

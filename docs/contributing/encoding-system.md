@@ -6,7 +6,6 @@ sidebar_position: 3
 
 The encoding system converts room geometry and parameters into 128×128 pixel images. Each pixel's RGBA channels encode specific geometric, radiometric, or contextual information. Neural networks process these images to predict daylight distribution.
 
-
 ## How the image is built
 
 **Resolution** - 128×128 pixels at base scale. Each pixel represents 0.1 m (10 cm). Total area: 12.8 m × 12.8 m.
@@ -56,39 +55,39 @@ Each region's pixels encode parameters via RGBA channels. Encoding varies by mod
 
 ### Background Region
 
-| Parameter | Channel | Range | Used In |
-|-----------|---------|-------|---------|
-| Terrain reflectance | Red | 0-1 | Custom modes |
-| Floor height above terrain | Green | 0-10 m | All models |
-| Facade reflectance | Blue | 0-1 | Custom modes |
-| Window orientation | Alpha | 0-360° | DA modes |
+| Parameter                  | Channel | Range  | Used In      |
+| -------------------------- | ------- | ------ | ------------ |
+| Terrain reflectance        | Red     | 0-1    | Custom modes |
+| Floor height above terrain | Green   | 0-10 m | All models   |
+| Facade reflectance         | Blue    | 0-1    | Custom modes |
+| Window orientation         | Alpha   | 0-360° | DA modes     |
 
 ### Room Region
 
-| Parameter | Channel | Range | Used In |
-|-----------|---------|-------|---------|
-| Vertical reflectance (walls) | Red | 0-1 | Custom modes |
-| Horizontal reflectance (floor) | Green | 0-1 | Custom modes |
-| Height roof over floor | Blue | 0-30 m | All models |
-| Ceiling reflectance | Alpha | 0.5-1 | Custom modes |
+| Parameter                      | Channel | Range  | Used In      |
+| ------------------------------ | ------- | ------ | ------------ |
+| Vertical reflectance (walls)   | Red     | 0-1    | Custom modes |
+| Horizontal reflectance (floor) | Green   | 0-1    | Custom modes |
+| Height roof over floor         | Blue    | 0-30 m | All models   |
+| Ceiling reflectance            | Alpha   | 0.5-1  | Custom modes |
 
 ### Window Region
 
-| Parameter | Channel | Range | Used In |
-|-----------|---------|-------|---------|
-| Sill height | Red | 0-5 m | All models |
-| Frame ratio | Green | 0-1 (reversed) | All models |
-| Window height | Blue | 0.2-5 m (reversed) | All models |
-| Frame reflectance | Alpha | 0-1 | Custom modes |
+| Parameter         | Channel | Range              | Used In      |
+| ----------------- | ------- | ------------------ | ------------ |
+| Sill height       | Red     | 0-5 m              | All models   |
+| Frame ratio       | Green   | 0-1 (reversed)     | All models   |
+| Window height     | Blue    | 0.2-5 m (reversed) | All models   |
+| Frame reflectance | Alpha   | 0-1                | Custom modes |
 
 ### Obstruction Bar Region
 
-| Parameter | Channel | Range | Used In |
-|-----------|---------|-------|---------|
-| Obstruction angle zenith | Red | 0-70° | All models |
-| Context reflectance | Green | 0.1-0.6 | Custom modes |
-| Obstruction angle horizon | Blue | 0-90° | All models |
-| Balcony reflectance | Alpha | 0-1 | Custom modes |
+| Parameter                 | Channel | Range   | Used In      |
+| ------------------------- | ------- | ------- | ------------ |
+| Obstruction angle zenith  | Red     | 0-70°   | All models   |
+| Context reflectance       | Green   | 0.1-0.6 | Custom modes |
+| Obstruction angle horizon | Blue    | 0-90°   | All models   |
+| Balcony reflectance       | Alpha   | 0-1     | Custom modes |
 
 </details>
 
@@ -101,6 +100,7 @@ Each region's pixels encode parameters via RGBA channels. Encoding varies by mod
 Rooms with windows on different facades get one encoded image per window. Room polygon and window coordinates rotated so each window faces right (toward image edge).
 
 **Rotation angles**
+
 - South facade (0°): No rotation
 - West facade (90°): Rotate -270°
 - North facade (180°): Rotate -180°
@@ -118,6 +118,7 @@ resolution = 0.1 / scale  # meters per pixel
 ```
 
 **Examples**
+
 - 128×128: 1 pixel = 0.10 m
 - 256×256: 1 pixel = 0.05 m
 - 512×512: 1 pixel = 0.025 m
