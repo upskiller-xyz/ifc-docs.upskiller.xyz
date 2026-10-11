@@ -20,7 +20,8 @@
     "format:check": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepare": "husky"
+    "prepare": "husky",
+    "fonts": "bash scripts/fetch-assets.sh"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",
