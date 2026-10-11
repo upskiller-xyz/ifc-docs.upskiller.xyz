@@ -1,7 +1,39 @@
-/* Fonts served from the Scaleway bucket (not committed to git) */
+/* Brand fonts — served from this site's own origin.
+ *
+ * The .woff files are not in the repo: binaries bloat history, git cannot diff
+ * them, and AUTOMATE is licensed. scripts/fetch-assets.sh pulls them from the
+ * private Scaleway bucket at build time into static/fonts/, which Docusaurus
+ * copies into build/ and nginx then serves.
+ *
+ * This replaced a direct link to the bucket object, which stopped working the
+ * moment the object was made private: the browser got a 403 and discarded the
+ * font, and font-display: swap meant the page rendered in the fallback face
+ * with nothing in the console to say why.
+ *
+ * Why same-origin rather than making the object public again:
+ *
+ * - Licensing. A licence that permits a self-hosted webfont on a licensed
+ *   domain generally does not permit serving the file from an open bucket that
+ *   anything can hotlink. The bytes are downloadable either way — a font a
+ *   browser can render is a font anyone can save — so this is about the shape
+ *   of the distribution, not secrecy.
+ * - No CORS. @font-face fetches are made in CORS mode even from a plain
+ *   stylesheet, so a bucket-hosted font also needs an
+ *   Access-Control-Allow-Origin for this origin. A same-origin request has
+ *   nothing to negotiate.
+ *
+ * A missing file FAILS THE BUILD here, which is worth knowing because it is the
+ * opposite of what a stylesheet usually does. Docusaurus resolves a root-
+ * relative url() against static/ and emits a content-hashed copy — the built
+ * CSS asks for /assets/fonts/AUTOMATEBold-<hash>.woff, not the path written
+ * below — so these are webpack modules, and an unresolvable module is a
+ * compilation error rather than a 404 at runtime. `npm run fonts` fixes it
+ * locally, given credentials for the bucket.
+ *
+ * Only Light (300) and Bold (700) are shipped — the two weights the site uses. */
 @font-face {
   font-family: 'AUTOMATE';
-  src: url('https://upskiller-website.s3.fr-par.scw.cloud/upskiller/fonts/AUTOMATELight.woff') format('woff');
+  src: url('/fonts/AUTOMATELight.woff') format('woff');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -9,7 +41,7 @@
 
 @font-face {
   font-family: 'AUTOMATE';
-  src: url('https://upskiller-website.s3.fr-par.scw.cloud/upskiller/fonts/AUTOMATEBold.woff') format('woff');
+  src: url('/fonts/AUTOMATEBold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
   font-display: swap;

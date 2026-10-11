@@ -29,6 +29,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # The brand fonts are private objects in the bucket, so they are pulled
+      # into the build context here rather than linked from the stylesheet. On
+      # the runner, not inside `docker build`: there the Scaleway key would have
+      # to arrive as a build-arg that lands in the image history, or as a
+      # BuildKit secret mount. This way the key stays on the runner and the
+      # build only ever sees files.
+      #
+      # --require fails the deploy instead of shipping a site whose brand font
+      # silently falls back to a system face.
+      - name: Fetch private build-time assets
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_KEY }}
+          AWS_DEFAULT_REGION: fr-par
+        run: bash scripts/fetch-assets.sh --require --force
+
       # Same tag convention as web-daylight-tool: an immutable per-commit tag
       # plus a moving "edge" tag for the latest master build.
       - name: Compute image tags
