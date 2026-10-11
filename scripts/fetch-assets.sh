@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Pull the licensed brand fonts into public/ so they are served from this site's
-# own origin instead of from a public bucket URL.
+# Pull the licensed brand fonts into static/fonts/ so they are served from this
+# site's own origin instead of from a public bucket URL.
 #
 # Why not just link to the bucket: AUTOMATE is licensed, and a licence that
 # allows a self-hosted webfont on a licensed domain generally does not allow

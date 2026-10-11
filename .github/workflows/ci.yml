@@ -20,6 +20,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # The build needs the private fonts HERE too, not only in the deploy.
+      # Docusaurus resolves the root-relative url() in src/css/fonts.css
+      # against static/ as a webpack module, so an absent font is not a 404 at
+      # runtime — it is "Can't resolve '/fonts/…'" and the bundle never
+      # compiles. Without this step every CI run and pull request is red.
+      - name: Fetch private build-time assets
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SCW_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SCW_SECRET_KEY }}
+          AWS_DEFAULT_REGION: fr-par
+        run: bash scripts/fetch-assets.sh --require --force
+
       - name: Type-check
         run: npm run typecheck
 
